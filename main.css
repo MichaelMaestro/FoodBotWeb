@@ -34,7 +34,7 @@
     left: 50px;
     font-size: 24px;
     color: #7bd0f3;;
-    font-family: Verdana;
+    font-family: 'Comfortaa', cursive;
 	}
 	.licence{
 	position: relative;
@@ -70,7 +70,7 @@
     bottom:5px;
 }
 .menu table {
-font-family: "Lucida Sans Unicode", "Lucida Grande", "Sans-Serif";
+font-family: 'Roboto', cursive;
 text-align: left;
 border-collapse: separate;
 border-spacing: 3px;
@@ -172,33 +172,50 @@ max-height: 150px;
     font-style: normal;
     padding-left: 10px;
 }
-.addDish input[type="text"]::-webkit-input-placeholder {color: #000;} 
-.addDish input[type="text"]::-moz-placeholder {color: #000;}
-.addDish textarea::-webkit-input-placeholder {color: #000;} 
-.addDish textarea::-moz-placeholder {color: #000;}
+.addDish input[type="text"]::-webkit-input-placeholder{
+        color: #000;
+        font-family:'Marmelad', sans-serif;
+        } 
+.addDish input[type="text"]::-moz-placeholder{
+        color: #000;
+        font-family:'Marmelad', sans-serif;
+        }
+.addDish textarea::-webkit-input-placeholder{
+        color: #000; 
+        font-family:'Marmelad', sans-serif;
+        } 
+.addDish textarea::-moz-placeholder{
+        color: #000;
+        font-family:'Marmelad', sans-serif;
+        }
 .addDish h2{
-margin-left: 275px;
+font-family:'Lobster',cursive;
+font-size: 45px;
+margin-left: 200px;
 margin-top: 0;
-color: dodgerblue;
+color: #ffa71e;
 }
-
-	
-
-	
-	.picture img{
-		max-width: 300px;
-		position: relative;
-		top:40px;
-		left:130px;
-	}	
-	.zag2{
+.input-group1{
+margin-bottom: -132px;
+}
+.input-group2{
+padding-left: 330px;
+}
+    
+.picture img{
+	max-width: 300px;
+	position: relative;
+	top:40px;
+	left:130px;
+}	
+.zag2{
     position: relative;
-    font-family:"Trebuchet MS";
+    font-family:'Lobster',cursive;
     color: dodgerblue;
-    font-size:34px;
+    font-size:45px;
     top:20px;
     margin-top:50px;
-    margin-left: 300px;
+    margin-left: 235px;
 }
 .overlay {
     background-color: rgba(0, 0, 0, 0.7);

@@ -95,14 +95,14 @@
     <div class="addDish">
     <h2>Добавьте ваше новое блюдо</h2>
         <form action="save_dish.php" method="post" enctype = 'multipart/form-data'>
-            <div style="margin-bottom: -132px;">
+            <div class="input-group1">
                 <input type="text" value="" name="dish_name" placeholder="Наименование блюда"> 
                 <br>
                 <input type="text"  id="Ssilka" value="" name="picture" placeholder="URL- Изображиеня" onkeyup="checkUrl()">
                 <br>
                 <input type="file" id="filik" name="dish_pic" onchange="k()">
            </div>
-           <div style="padding-left: 330px;">
+           <div  class="input-group2">
                 <input type="text"  value="" name="ingr" placeholder="Ингридиенты">
                 <br>
                 <input type="text"  value="" name="price" placeholder="Цена">
