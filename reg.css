@@ -1,0 +1,82 @@
+
+#logo {
+        width: 100px;
+        float:center;
+        margin: 10px auto;
+        }
+
+    #logo a {
+        height: 28px;
+        display: block;
+        font-size: 0;
+        line-height: 0;}
+
+    #wrap{
+        width:800px;
+        margin:0 auto;
+    }
+    .backgr{
+    width:1024px;
+    height:800px;
+    padding: 100px;
+    margin: 0 auto;
+    background: url("images/127.jpg") no-repeat center center;
+    background-size: cover;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+}
+.regForm{
+    margin:  0px auto;
+    padding: 20px 20px 20px 20px;
+    width: 590px;
+    height: 520px;
+    background: #fff;
+    opacity: 0.95;
+    border-radius: 11px;
+    -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(36, 151, 224, 0.3);
+    box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(36, 151, 224, 0.3);
+}
+
+.regForm hr{
+    width:500px;
+}
+.regForm p {
+    margin: 10px 0 0;
+}
+
+.regForm p:first-child {
+    margin-top: 0;
+}
+.regForm input[type=text]{
+    width: 200px;
+    height: 30px;
+    border-radius: 6px;
+}
+.regForm input[name=name_dir],.regForm input[name=fam_dir]{
+    width: 100px;
+    height: 25px;
+    border-radius: 6px;
+}
+.regForm input[type=submit]{
+    position: relative;
+    left: 225px;
+}
+
+.rekviz{
+    position:relative;
+    bottom:360px;
+    right:40px;
+    float:right;
+    padding: 10px;
+    width: 230px;
+    height: 170px;
+    background: #ecf5f7;
+    opacity: 0.95;
+    border-radius: 11px;
+    -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(36, 151, 224, 0.3);
+    box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(36, 151, 224, 0.3);
+}
+
+.rekviz h2{
+    margin:0;
+    font-size: 25px;
+}

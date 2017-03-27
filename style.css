@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:400,700|Lobster&subset=cyrillic');
+* { margin: 0; padding: 0; outline: 0;}
+body, html { height: 100%; }
+
+body {
+    font-size: 12px;
+    line-height: 16px;
+    font-family: arial, sans-serif;
+    color: #808080;
+    background: #F0f0f0;
+    min-width: 950px;
+    width:1024px;
+    height: 100%;
+}
+
+a { color: #65cbf8; text-decoration: none; cursor: pointer; }
+a:hover { text-decoration: underline; }
+a img { border: 0; }
+
+article, aside, details, footer, header, menu, nav, section { display: block; }
+input, textarea, select { font-size: 12px; font-family: arial, sans-serif; }
+textarea { overflow: auto; }
+.shell {
+    margin: 0px auto;
+    width: 100%; }
+.header {
+    position: absolute;
+    top: 0;
+    background: url(images/header.png) repeat-x 0 0;
+    height: 58px;
+    width:1024px;
+    padding: 1px 30px 5px 0;
+}
+
+.text{
+        float: left;
+        width:540px;
+        margin-left:20px; 
+        opacity: 1;
+    }
+
+.text h3{ 
+        font-family: 'Comfortaa', cursive;
+        color: #ff920b;
+        font-size:24px;
+    }
+.text p{
+        font-weight: 600;
+        font-family: 'Comfortaa', cursive;
+        font-size: 20px;
+        color: #000;
+    }
+.picture img{
+        max-width: 300px;
+        position: relative;
+        top:40px;
+        left:130px;
+    } 
+.footer{
+    background-color: #000;
+    height: 60px;
+}  
