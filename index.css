@@ -1,10 +1,9 @@
-
-
 	.header input[type=button]{
 		float:right;
 		margin-top: 10px;
 		background-color:dodgerblue;
 		border-color:dodgerblue;
+		font-family: 'Roboto',sans-serif;
 	}
 
 	#logo {
@@ -46,6 +45,7 @@
 	}
 	.hero-unit a:hover{
 		color:white;
+		text-decoration: none;
 	}
 	.login {
 		position: relative;
@@ -58,6 +58,7 @@
 	    background: #fff;
 	    opacity: 0.9;
 	    border-radius: 11px;
+	    font-family: 'Comfortaa',cursive;
 	    -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(36, 151, 224, 0.3);
 	    box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(36, 151, 224, 0.3);
 
