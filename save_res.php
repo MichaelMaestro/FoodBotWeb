@@ -7,7 +7,7 @@ if (isset($_POST['phone'])) { $phone=$_POST['phone']; if ($phone =='') { unset($
 if (isset($_POST['site'])) { $site=$_POST['site']; if ($site =='') { unset($site);} }
 if (isset($_POST['name_dir'])) { $name_dir=$_POST['name_dir']; if ($name_dir =='') { unset($name_dir);} }
 if (isset($_POST['fam_dir'])) { $fam_dir=$_POST['fam_dir']; if ($fam_dir =='') { unset($fam_dir);} }
-if (isset($_POST['contact_data'])) { $contact_data=$_POST['contact_data']; if ($contact_data =='') { unset($contact_data);} }
+if (isset($_POST['email'])) { $email=$_POST['email']; if ($email =='') { unset($email);} }
 if (isset($_POST['inn'])) { $inn=$_POST['inn']; if ($inn =='') { unset($inn);} }
 if (isset($_POST['ogrn'])) { $ogrn=$_POST['ogrn']; if ($ogrn =='') { unset($ogrn);} }
 if (isset($_POST['rs'])) { $rs=$_POST['rs']; if ($rs =='') { unset($rs);} }
@@ -34,8 +34,8 @@ $name_dir = stripslashes($name_dir);
 $name_dir = htmlspecialchars($name_dir);
 $fam_dir = stripslashes($fam_dir);
 $fam_dir = htmlspecialchars($fam_dir);
-$contact_data = stripslashes($contact_data);
-$contact_data = htmlspecialchars($contact_data);
+$email = stripslashes($email);
+$email = htmlspecialchars($email);
 $inn = stripslashes($inn);
 $inn = htmlspecialchars($inn);
 $ogrn = stripslashes($ogrn);
@@ -51,7 +51,7 @@ $phone = trim($phone);
 $site = trim($site);
 $name_dir = trim($name_dir);
 $fam_dir = trim($fam_dir);
-$contact_data = trim($contact_data);
+$email = trim($email);
 $inn = trim($inn);
 $ogrn = trim($ogrn);
 $rs = trim($rs);
@@ -76,7 +76,7 @@ $myrow = mysql_fetch_array($result);
     
 }
 // если такого нет, то сохраняем данные
-$result2 = mysql_query ("INSERT INTO `res` (`name`, `inn`, `ogrn`, `rs`, `phone`, `site`, `name_dir`, `fam_dir`, `contac_data`,`login`, `pass`,`lic`) 	VALUES('$name','$inn','$ogrn','$rs','$phone','$site','$name_dir','$fam_dir','$contact_data','$login','$password','$uploadfile')");
+$result2 = mysql_query ("INSERT INTO `res` (`name`, `inn`, `ogrn`, `rs`, `phone`, `site`, `name_dir`, `fam_dir`, `e-mail`,`login`, `pass`,`lic`) 	VALUES('$name','$inn','$ogrn','$rs','$phone','$site','$name_dir','$fam_dir','$email','$login','$password','$uploadfile')");
 $result3 = mysql_query ("INSERT INTO `resbuild` (`address`,`id_res`) VALUES('$address','$result')");
 //проверяем загрузил ли пользователь фото, если да то ставим в базе метку 1;
 if($uploadfile){

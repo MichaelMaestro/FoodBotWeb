@@ -6,22 +6,8 @@
 		font-family: 'Roboto',sans-serif;
 	}
 
-	#logo {
-	    width: 100px;
-	    float:left;
-	    margin: 10px auto;
-	    }
+	
 
-	#logo a {
-	    height: 28px;
-	    display: block;
-	    font-size: 0;
-	    line-height: 0;}
-
-	#wrap{
-	    width:800px;
-	    margin:0 auto;
-	}
 .block-1{
     height:400px;
     margin: 58px auto 0;
@@ -53,7 +39,7 @@
 		right:40px;
 	  	bottom:65px;
 	    padding: 0 20px 20px 20px;
-	    width: 365px;
+	    width: 380px;
 	    height: 220px;
 	    background: #fff;
 	    opacity: 0.9;

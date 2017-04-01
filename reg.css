@@ -1,21 +1,4 @@
-
-#logo {
-        width: 100px;
-        float:center;
-        margin: 10px auto;
-        }
-
-    #logo a {
-        height: 28px;
-        display: block;
-        font-size: 0;
-        line-height: 0;}
-
-    #wrap{
-        width:800px;
-        margin:0 auto;
-    }
-    .backgr{
+ .backgr{
     width:1024px;
     height:800px;
     padding: 100px;
@@ -46,7 +29,7 @@
 .regForm p:first-child {
     margin-top: 0;
 }
-.regForm input[type=text]{
+.regForm input[type=text], .regForm input[type=email]{
     width: 200px;
     height: 30px;
     border-radius: 6px;

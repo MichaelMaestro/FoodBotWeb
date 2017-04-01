@@ -24,7 +24,10 @@ session_start();//  вся процедура работает на сессия
                 <hr>
                 <form class="form-horizontal" action="main.php" method="post">
                     <p><input type="text" name="login" value="" placeholder="Логин или Email" required></p>
-                    <p><input type="password" name="pass" value="" placeholder="Пароль" required></p>
+                    <p>
+                        <input type="password" name="pass" value="" placeholder="Пароль" required>
+                        <label><a href="pass_refresh.php">Забыли пароль?</a></label>
+                    </p>
                     
                     <p class="remember_me">
                     <label>
