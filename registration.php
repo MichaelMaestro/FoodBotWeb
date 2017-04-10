@@ -24,10 +24,14 @@
                 <p><input type="text"  value="" name="address" placeholder="Адрес ресторана*" required></p>
                 <p><input id="phone" type="text"   value="" name="phone" placeholder="Телефон ресторана*" required></p>
                 <p><input type="text"  value="" name="site" placeholder="Сайт ресторана"></p>
-                <p><input type="text"  value="" name="name_dir" placeholder="Имя"> <input type="text"  value="" name="fam_dir" placeholder="Фамилия"></p>
+                <p><input type="text"  value="" name="name_dir" placeholder="ФИО"> 
                 <p><input type="email"  value="" name="email" placeholder="E-mail*" required></p>
-                <p>Фото лицензии <input type="file" name="somename"></p> 
-                
+                <p>Фото лицензии 
+                <input type="file" id="file" name="somename">
+                <label for="file">
+                <img src="images/add_icon.png"> 
+                </label>
+                </p>
                 <p class="remember_me">
                     <label>
                         <input type="checkbox" name="remember_me" id="remember_me">

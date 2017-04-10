@@ -1287,7 +1287,7 @@ h6,
   font-size: 12px;
 }
 p {
-  margin: 0 0 10px;
+  margin: 0 0 5px;
 }
 .lead {
   margin-bottom: 20px;
@@ -2499,7 +2499,7 @@ legend {
   width: 100%;
   padding: 0;
   margin-bottom: 20px;
-  font-size: 21px;
+  font-size: 25px;
   line-height: inherit;
   color: #333;
   border: 0;

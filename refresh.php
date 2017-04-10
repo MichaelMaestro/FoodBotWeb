@@ -2,7 +2,7 @@
 include('bd.php');
 if (isset($_POST['email'])) { $email = $_POST['email']; if ($email == '') { unset($email);} } 
 
-if (empty($email)) //если пользователь не ввел логин или пароль, то выдаем ошибку и останавливаем скрипт
+if (empty($email)) //если пользователь не ввел e-mail, то выдаем ошибку и останавливаем скрипт
 {
     exit ("<html><head><meta http-equiv='Refresh' content='0; URL=pass_refresh.php'><script> alert('Введённая вами почта не соответсвует введённой при регистрации!')</script></head></html>");
     
@@ -15,6 +15,6 @@ $email_from_db = mysql_fetch_array($result);
 		mail($email,"Пароль", "Ваш пароль: на горшке сидел король","From: FoodBotRostov@gmail.com");
 	}
 	else{
-		echo "Сорян такой почты нет и небыло!";
+		echo "Сорян, такой почты нет и небыло!";
 	}
 ?>
