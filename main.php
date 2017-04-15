@@ -1,4 +1,4 @@
-<?php include('logging.php'); ?>
+<?php require_once('logging.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,19 +27,18 @@
 </div>
 
     <div class="passport">
-        <h2 class="zag2">Добро пожаловть, <?php  echo"$_SESSION[name]"?> !</h2>
-        <div class="content">
-        Телефон: <?php echo $myrow['phone']?><br>
-        Сайт ресторана: <?php echo $myrow['site']?><br>
-        Директор: <?php echo $myrow['name_dir'],' ',$myrow['fam_dir']?><br>
-        ИНН:<?php echo $myrow['inn']?>
-        ОГРН:<?php echo $myrow['ogrn']?>
-        р/с:<?php echo $myrow['rs']?>
-        </div>
-        <div class="licence">
-        <img src="<?php echo $myrow['lic']; ?>">
-        </div>
-
+          <h2 class="zag2">Добро пожаловть, <?php  echo"$_SESSION[name]"?> !</h2>
+          <div class="info">
+          Телефон: <?php echo $myrow['phone']?><br>
+          Сайт ресторана: <?php echo $myrow['site']?><br>
+          Директор: <?php echo $myrow['name_dir'],' ',$myrow['fam_dir']?><br>
+          ИНН:<?php echo $myrow['inn']?>
+          ОГРН:<?php echo $myrow['ogrn']?>
+          р/с:<?php echo $myrow['rs']?>
+          </div>
+          <div class="licence">
+          <img src="<?php echo $myrow['lic']; ?>">
+          </div>
     </div>
 
     <div class="menu">
@@ -90,17 +89,21 @@
                 ?>
             </table>
         </form>
+        </div>
     </div>
 
     <div class="addDish">
-    <h2>Добавьте ваше новое блюдо</h2>
+      <h2>Добавьте ваше новое блюдо</h2>
         <form action="save_dish.php" method="post" enctype = 'multipart/form-data'>
             <div class="input-group1">
                 <input type="text" value="" name="dish_name" placeholder="Наименование блюда"> 
                 <br>
-                <input type="text"  id="Ssilka" value="" name="picture" placeholder="URL- Изображиеня" onkeyup="checkUrl()">
+                <input type="text"  id="Ssilka" value="" name="picture" placeholder="URL- Изображиеня" onkeyup="checkUrl()" >
                 <br>
                 <input type="file" id="filik" name="dish_pic" onchange="k()">
+                <label for="filik">
+                  <img src="images/add_icon.png"> 
+                </label>
            </div>
            <div  class="input-group2">
                 <input type="text"  value="" name="ingr" placeholder="Ингридиенты">
@@ -111,7 +114,6 @@
             <input type="submit"  value="Добавить блюдо">    
         </form>  
     </div>  
-
 </div>
     
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

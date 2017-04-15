@@ -17,14 +17,7 @@ session_start();//  вся процедура работает на сессия
         </div>  
     </header>
  
-<div class="overlay" title="окно"></div>
-<div class="popup">
-    <p>Для восстановления пароля введите e-mail указаный при регистрации</p>
-    <form action="refresh.php" method="post">
-     <input type="email" name="email" placeholder="E-mail">
-     <input type="submit"  value="Отправить">
-     </form>
-</div>
+
 
     <div class="block-1">
         <div class="content">
@@ -35,7 +28,7 @@ session_start();//  вся процедура работает на сессия
                 <legend>Авторизация</legend>
                     <p><input class="input" type="text" name="login" value="" placeholder="Логин или Email" required></p>
                     <p><input type="password" name="pass" value="" placeholder="Пароль" required></p>
-                    <p><label><a id="refresh">Забыли пароль?</a></label></p>
+                    <p><input type="button" id="refresh" value="Забыли пароль?"></p>
                     <p class="remember_me">    
                     <input type="checkbox" id="remember_me" name="remember_me"><label for="remember_me">Запомнить меня</label>
                     </p>
@@ -46,6 +39,7 @@ session_start();//  вся процедура работает на сессия
             </div>
         </div>
     </div>
+
 
 
 
@@ -115,5 +109,16 @@ session_start();//  вся процедура работает на сессия
         });
     });
 </script>
+<?php
+if(isset($_COOKIE['login']) and isset($_COOKIE['password'])){
+
+$login=$_COOKIE['login'];
+$password=$_COOKIE['password'];
+echo "<script>
+document.getElementById('login').value='$login';
+document.getElementById('password').value='$password';
+</script>";
+}
+?>
 </body>
 </html>

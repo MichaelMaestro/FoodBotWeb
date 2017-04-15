@@ -12,13 +12,13 @@
     background-size: cover;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
 }
-	.content{
-	position: absolute;
-    top: 110px;
+    .info{
+    position: relative;
+    top: 100px;
     left: 50px;
     font-size: 24px;
-    color: #7bd0f3;;
-    font-family: 'Comfortaa', cursive;
+    color: #ffa71e;
+    font-family: 'Comfortaa', cursive
 	}
 	.licence{
 	position: relative;
@@ -36,7 +36,7 @@
     max-height: 500px;
     overflow: auto;
     margin:  0px auto;
-    padding: 0px 10px 0px;
+    padding: 0 100px 0 100px;
     border-radius: 11px;
     -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(36, 151, 224, 0.3);
     box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(36, 151, 224, 0.3);
@@ -100,17 +100,18 @@ max-height: 150px;
     background: url("images/addDish.png") no-repeat center center;
     background-size: cover;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
-    padding: 30px;
+    padding: 30px 120px;
 }
 .addDish textarea{
     width: 300px;
-    height: 100px;
+    height: 96px;
     resize: none;
     position: relative;
-    bottom: 5px;
+    bottom: 3px;
+    top: -110px;
+    left: 4px;
     padding: 7px;
     float: right;
-    margin-top: -108px;
 }
 .addDish input[type=text]{
 	border: 1px solid rgb(255, 255, 255);
@@ -123,6 +124,16 @@ max-height: 150px;
     color: black;
     padding-left: 10px;
     margin-bottom: 15px;
+}
+.addDish input[type=file]{ display:none; }
+.addDish label{
+    position: relative;
+    left: 265px;
+    bottom: 70px;
+
+}
+.addDish label img{
+   max-width: 28px;
 }
 .addDish input[type=submit]{
 	position: relative;
@@ -183,7 +194,7 @@ color: #ffa71e;
 margin-bottom: -132px;
 }
 .input-group2{
-padding-left: 330px;
+padding-left: 350px;
 }
     
 .picture img{
@@ -199,7 +210,7 @@ padding-left: 330px;
     font-size:45px;
     top:20px;
     margin-top:50px;
-    margin-left: 235px;
+    margin-left: 125px;
 }
 
 

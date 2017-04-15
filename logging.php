@@ -5,7 +5,7 @@ if (isset($_POST['pass'])) { $password=$_POST['pass']; if ($password =='') { uns
 //заносим введенный пользователем пароль в переменную $password, если он пустой, то уничтожаем переменную
 if (empty($login) or empty($password)) //если пользователь не ввел логин или пароль, то выдаем ошибку и останавливаем скрипт
 {
-    exit ("<html><head><meta http-equiv='Refresh' content='0; URL=index.php'><script> alert('Введённый логин или пароль не правильный!')</script></head></html>");
+    exit ("<html><head><meta charset='utf8' http-equiv='Refresh' content='0; URL=index.php'><script> alert('Введённый логин или пароль не правильный!')</script></head></html>");
     
 }
 //если логин и пароль введены,то обрабатываем их, чтобы теги и скрипты не работали, мало ли что люди могут ввести
@@ -28,7 +28,12 @@ if (empty($myrow['pass']))
 }
 else {
     //если существует, то сверяем пароли
-    if ($myrow['pass']==$password) {
+    if ($myrow['pass']==$password){
+        if($password==$myrow['pass'] and isset($_POST['remember_me'])){
+          setcookie('login',$login,time()+3600);
+          setcookie('password',$password,time()+3600);
+        }
+
         //если пароли совпадают, то запускаем пользователю сессию! Можете его поздравить, он вошел!
         $_SESSION['name']=$myrow['name'];//получаем имя залогированного ресторана для приветсвия.
         $_SESSION['login']=$myrow['login'];
@@ -39,6 +44,7 @@ else {
         exit ("<html><head><meta http-equiv='Refresh' content='0; URL=index.php'><script> alert('Извините, введённый вами login или пароль неверный.')</script></head></html>");
     }
 }
+
 
     // Выполняем SQL-запрос
     mysql_query("SET NAMES utf8");
@@ -51,4 +57,6 @@ else {
     $keywords = mysql_fetch_array($result2);
     // Закрываем соединение
     mysql_close($db);
+
+    //header("location:main.php");
     ?>
