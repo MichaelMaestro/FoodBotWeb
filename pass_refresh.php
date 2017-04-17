@@ -6,16 +6,24 @@
     <link href="css/bootstrap.css" rel="stylesheet">
 </head>
 <body> 
+
     <header class="header">
         <div class="shell">
-            <h1 id="logo"><a href="index.php"><img src="images/logo.png" alt="FoodBot">FoodBot</a></h1>
+            <h1 class="logo">FoodBot</h1>
         </div>  
     </header>
-<div class="refresh_form" style="margin-top: 100px;">
-	<form action="refresh.php" method="post">
-	<p>Для восстановления пароля необходимо ввести почту указанную при регистрации</p>
-	<input type="email" name="email" placeholder="Введите вашу почту" required>
-	<input type="submit" value="Отправить пароль">
+
+<div class="refresh_form">
+	<form class="form-horizontal" action="refresh.php" method="post">
+        <legend>Восстановление пароля</legend>
+        <div class="control-group">
+        	<label>Для восстановления пароля необходимо<br>ввести почту указанную при регистрации</label>
+            <div class="control">
+        	   <input type="email" name="email" placeholder="Введите вашу почту" required>
+            </div>
+        </div>
+
+	    <input type="submit" class="btn" value="Отправить пароль">
 	</form>
 </div>
 

@@ -12,7 +12,7 @@ session_start();//  вся процедура работает на сессия
 <body> 
     <header class="header">
         <div class="shell">
-            <h1 id="logo"><a href="index.php"><img src="images/logo.png" alt="FoodBot">FoodBot</a></h1>
+            <h1 class="logo">FoodBot</h1>
                  <input type="button" class="btn btn-success" name="reg" value="Регистрация" onclick=" window.location = 'registration.php'">
         </div>  
     </header>
@@ -28,7 +28,7 @@ session_start();//  вся процедура работает на сессия
                 <legend>Авторизация</legend>
                     <p><input class="input" type="text" name="login" value="" placeholder="Логин или Email" required></p>
                     <p><input type="password" name="pass" value="" placeholder="Пароль" required></p>
-                    <p><input type="button" id="refresh" value="Забыли пароль?"></p>
+                    <p><a  href="#" id="refresh" >Забыли пароль?</a></p>
                     <p class="remember_me">    
                     <input type="checkbox" id="remember_me" name="remember_me"><label for="remember_me">Запомнить меня</label>
                     </p>
@@ -109,16 +109,6 @@ session_start();//  вся процедура работает на сессия
         });
     });
 </script>
-<?php
-if(isset($_COOKIE['login']) and isset($_COOKIE['password'])){
 
-$login=$_COOKIE['login'];
-$password=$_COOKIE['password'];
-echo "<script>
-document.getElementById('login').value='$login';
-document.getElementById('password').value='$password';
-</script>";
-}
-?>
 </body>
 </html>

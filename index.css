@@ -38,7 +38,7 @@
 			position: relative;
 			float: right;
 		  	bottom:75px;
-		  	right:20px;
+		  	right:30px;
 		    padding: 10px 20px 20px 20px;
 		    width: 345px;
 		    height: 230px;
@@ -132,11 +132,11 @@
 			 color: #000;
 		}
 		.block-4 .picture img{
+			
+			float:right;
+			margin-top: 40px;
 			max-width: 220px;
-			position: relative;
-			top:30px;
-			left:150px;
-		}
+			}	
 
 .footer{
 	background-color: #000;

@@ -3,6 +3,17 @@ session_start();//  вся процедура работает на сессия
 if (isset($_POST['login'])) { $login = $_POST['login']; if ($login == '') { unset($login);} } //заносим введенный пользователем логин в переменную $login, если он пустой, то уничтожаем переменную
 if (isset($_POST['pass'])) { $password=$_POST['pass']; if ($password =='') { unset($password);} }
 //заносим введенный пользователем пароль в переменную $password, если он пустой, то уничтожаем переменную
+
+if(isset($_COOKIE['login']) and isset($_COOKIE['password'])){
+
+$login=$_COOKIE['login'];
+$password=$_COOKIE['password'];
+echo "<script>
+document.getElementById('login').value='$login';
+document.getElementById('password').value='$password';
+</script>";
+}
+
 if (empty($login) or empty($password)) //если пользователь не ввел логин или пароль, то выдаем ошибку и останавливаем скрипт
 {
     exit ("<html><head><meta charset='utf8' http-equiv='Refresh' content='0; URL=index.php'><script> alert('Введённый логин или пароль не правильный!')</script></head></html>");
@@ -59,4 +70,7 @@ else {
     mysql_close($db);
 
     //header("location:main.php");
+
+
+
     ?>

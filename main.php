@@ -1,6 +1,6 @@
 <?php require_once('logging.php'); ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Меню</title>
@@ -11,7 +11,7 @@
 <body>
     <header class="header">
         <div class="shell">
-            <h1 id="logo"><a href="main.php"><img src="images/logo.png" alt="FoodBot">FoodBot</a></h1>
+            <h1 id="logo"><img src="images/logo.png" alt="FoodBot"></h1>
              <input type="submit" id="exit" class="btn btn-danger"  value="Выход">
              
         </div>

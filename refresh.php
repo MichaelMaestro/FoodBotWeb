@@ -10,11 +10,14 @@ if (empty($email)) //если пользователь не ввел e-mail, т�
  
 $result = mysql_query("SELECT `e-mail` from `res` WHERE 1");
 $email_from_db = mysql_fetch_array($result);
-	if($email_from_db = $email){
-		//echo "string";
+		foreach ($email_from_db as $mail) {
+		
+	if($mail == $email){
 		mail($email,"Пароль", "Ваш пароль: на горшке сидел король","From: FoodBotRostov@gmail.com");
+
 	}
 	else{
-		echo "Сорян, такой почты нет и небыло!";
+		echo "<script>Сорян, такой почты нет и небыло!</script>";
 	}
+}
 ?>
