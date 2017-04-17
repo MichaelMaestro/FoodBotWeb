@@ -1,6 +1,4 @@
  .backgr{
- 
-    height:800px;
     padding: 100px;
     margin: 0 auto;
     background: url("images/127.jpg") no-repeat center center;
@@ -11,7 +9,7 @@
     margin:  0px auto;
     padding: 20px 20px 20px 20px;
     width: 600px;
-    height: 520px;
+    height: 550px;
     background: #fff;
     opacity: 0.95;
     border-radius: 11px;

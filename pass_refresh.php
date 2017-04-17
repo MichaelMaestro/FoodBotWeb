@@ -9,7 +9,7 @@
 
     <header class="header">
         <div class="shell">
-            <h1 class="logo">FoodBot</h1>
+            <h1 class="logo" ">FoodBot</h1>
         </div>  
     </header>
 
@@ -23,7 +23,7 @@
             </div>
         </div>
 
-	    <input type="submit" class="btn" value="Отправить пароль">
+	    <input type="submit" class="btn btn-success" value="Отправить пароль">
 	</form>
 </div>
 

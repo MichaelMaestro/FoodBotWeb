@@ -59,7 +59,7 @@ textarea { overflow: auto; }
     }
 .text p{
         font-weight: 600;
-        font-family: 'Comfortaa', cursive;
+        font-family: 'Roboto', cursive;
         font-size: 20px;
         color: #000;
         padding:5px;
@@ -131,7 +131,9 @@ textarea { overflow: auto; }
     top:100px;
     width: 366px;
     padding: 20px;
-    margin-left: 520px;
+    margin-left: 460px;
+    background: #F4F4F4;
+    border-radius: 10px;
     }
     
     .control input[type='email']{
@@ -143,7 +145,7 @@ textarea { overflow: auto; }
         margin-left: 30px;
     }
     .refresh_form input[type='submit']{
-        margin-left: 70px;
+        margin-left: 80px;
         margin-top:7px;
         border-radius:6px;
     }

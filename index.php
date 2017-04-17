@@ -1,7 +1,7 @@
 <?php
 session_start();//  вся процедура работает на сессиях. Именно в ней хранятся данные  пользователя, пока он находится на сайте. 
 ?>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>FoodBot</title>
@@ -11,26 +11,25 @@ session_start();//  вся процедура работает на сессия
 </head>
 <body> 
     <header class="header">
-        <div class="shell">
-            <h1 class="logo">FoodBot</h1>
-                 <input type="button" class="btn btn-success" name="reg" value="Регистрация" onclick=" window.location = 'registration.php'">
-        </div>  
+    <div class="shell">
+        <h1 class="logo">FoodBot</h1>
+        <input type="button" class="btn btn-success" name="reg" value="Регистрация" onclick=" window.location = 'registration.php'">
+    </div>  
     </header>
  
-
 
     <div class="block-1">
         <div class="content">
             <h1 class="hero-unit"><a href="https://web.telegram.org/#/im?p=@takethefood_bot" target="_blank">Чат-бот</a> для <br>вашего ресторана</h1>
             <div class="login"> 
-               
                 <form class="form-horizontal" action="main.php" method="post">
-                <legend>Авторизация</legend>
+                    <legend>Авторизация</legend>
                     <p><input class="input" type="text" name="login" value="" placeholder="Логин или Email" required></p>
                     <p><input type="password" name="pass" value="" placeholder="Пароль" required></p>
-                    <p><a  href="#" id="refresh" >Забыли пароль?</a></p>
+                    <p><a  href="pass_refresh.php" id="refresh" >Забыли пароль?</a></p>
                     <p class="remember_me">    
-                    <input type="checkbox" id="remember_me" name="remember_me"><label for="remember_me">Запомнить меня</label>
+                    <input type="checkbox" id="remember_me" name="remember_me">
+                    <label for="remember_me">Запомнить меня</label>
                     </p>
                     <p class="submit">
                     <input type="submit" class="btn btn-success" name="commit" value="Войти">
@@ -47,15 +46,14 @@ session_start();//  вся процедура работает на сессия
         <div class="content">
             <div class="text">
                 <h3>Как это работает?</h3>
-                <br>
                 <p>Очень просто!<br>Пользователь заказывает еду у бота, заказ перенапраляется к вам.</p>
                 <br>
+
                 <h3>Зачем это нужно?</h3>
-                <br>
-                <p>С помощью чат бота вы сможете получать больше заказов и возможность привлечь новых клиентов. Так же вы получите статистику заказов через бота</p>
+                <p>С помощью чат бота вы сможете получать больше заказов и возможность привлечь новых клиентов.<br>Так же вы получите статистику заказов через бота</p>
             </div>
             <div class="picture">
-            <img src="images/ques.png">
+                <img src="images/ques.png">
             </div>
         </div>
     </div>
@@ -85,7 +83,7 @@ session_start();//  вся процедура работает на сессия
                 <p>Наш сервис использует технологию Google maps, благодаря которой вашему клиету будет сообщаться ориентировочное время доставки вашего блюда.</p>
             </div>
             <div class="picture">
-            <img src="images/map-marker.png">
+                <img src="images/map-marker.png">
             </div>
         </div>
     </div>
