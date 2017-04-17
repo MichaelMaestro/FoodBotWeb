@@ -9,7 +9,7 @@
 
     <header class="header">
         <div class="shell">
-            <h1 class="logo" ">FoodBot</h1>
+           <a href="index.php"><h1 class="logo">FoodBot</h1></a>
         </div>  
     </header>
 

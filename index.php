@@ -12,7 +12,7 @@ session_start();//  вся процедура работает на сессия
 <body> 
     <header class="header">
     <div class="shell">
-        <h1 class="logo">FoodBot</h1>
+        <a href="index.php"><h1 class="logo">FoodBot</h1></a>
         <input type="button" class="btn btn-success" name="reg" value="Регистрация" onclick=" window.location = 'registration.php'">
     </div>  
     </header>
