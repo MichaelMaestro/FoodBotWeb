@@ -45,6 +45,7 @@
       <form action="SOMEACTION" method="post" enctype='multipart/form-data'>
         <table>
           <tr>
+            <th>да/нет</th>
             <th>Наименование блюда</th>
             <th>Фото</th>
             <th>Описание</th>
@@ -55,6 +56,7 @@
 
           <?php do{?>
           <tr>
+            <td><input type="checkbox" name="check"></td>
             <td><?=$dish['dish_name']?></td>
             <td><img src="<?=$dish['icons']?>"></td>
             <td><?= $dish['descr_dish']?></td>
