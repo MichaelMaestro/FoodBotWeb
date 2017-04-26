@@ -17,7 +17,9 @@
 	<form class="form-horizontal" action="refresh.php" method="post">
         <legend>Восстановление пароля</legend>
         <div class="control-group">
-        	<label>Для восстановления пароля необходимо<br>ввести почту указанную при регистрации</label>
+        	<label>
+                Для восстановления пароля необходимо<br>ввести почту указанную при регистрации
+            </label>
             <div class="control">
         	   <input type="email" name="email" placeholder="Введите вашу почту" required>
             </div>

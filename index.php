@@ -96,17 +96,5 @@ session_start();//  вся процедура работает на сессия
 <!-- Скритпы -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="js/bootstrap.js"></script>
-<script> 
-    $(document).ready(function(){
-         $('.popup, #refresh, .overlay').click(function (){
-            $('.popup, .overlay').css({'opacity':'0', 'visibility':'hidden'});
-        });
-        $('#exit').click(function (e){
-            $('.popup, .overlay').css({'opacity':'1', 'visibility':'visible'});
-            e.preventDefault();
-        });
-    });
-</script>
-
 </body>
 </html>

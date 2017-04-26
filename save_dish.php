@@ -49,12 +49,13 @@ if(empty($picture)){
      move_uploaded_file($_FILES['dish_pic']['tmp_name'], $uploadfile);
      
     mysql_query("SET NAMES utf8");
-  /*$check = mysql_query("SELECT id_res, dish_name FROM dish WHERE id_res='$_SESSION[id]' and dish_name='$dish_name'",$db);
+
+ /* $check = mysql_query("SELECT dishes.id_res dish.dish_name FROM dish, dishes WHERE dishes.id_res='$_SESSION[id]' and dish.dish_name='$dish_name' and dish.id = dishes.id_res",$db);
   $myrow = mysql_fetch_array($check);
  if ($myrow['id_res']==$_SESSION[id]  &&  $myrow['dish_name']==$dish_name)
     exit ("<html><head><meta http-equiv='Refresh' content='0; URL=main.php'><script> alert ('Извините, в меню вашего ресторана уже есть такое блюдо.')</script></head></html>");*/
 
-    $result= mysql_query ("INSERT INTO `dish` (`dish_name`,`icons`,`descr_dish`,`price`,`ingredient`,`id_res`) VALUES ('$dish_name', '$uploadfile','$descr','$price','$ingr','$_SESSION[id]')");
+    $result= mysql_query ("INSERT INTO dish (`dish_name`, `icons`,`descr_dish`,`price`, `ingredient`,`id_res`) VALUES ('$dish_name', '$uploadfile','$descr','$price','$ingr','$_SESSION[id]')");
     if ($result =='TRUE'){
      echo "<html><head><meta charset='utf8'><script> alert('Блюдо добавлено.')</script></head></html>";
      error_reporting(0);
@@ -72,9 +73,8 @@ else{
   $picture = trim($picture);
 
   mysql_query("SET NAMES utf8");
-  $result2 = mysql_query ("INSERT INTO `dish` (`dish_name`,`icons`,`descr_dish`,`price`,`ingredient`,`id_res`) VALUES ('$dish_name', '$picture','$descr','$price','$ingr','$_SESSION[id]')");
-
-  if ($result2=='TRUE')
+  $result2 = mysql_query("INSERT INTO `dish` (`dish_name`, `icons`, `descr_dish`, `price`, `ingredient`,`id_res`) VALUES ('$dish_name', '$picture','$descr','$price','$ingr','$_SESSION[id]')");
+  if ($result2 =='TRUE')
   {
      echo "<html><head><meta charset='utf8' http-equiv='Refresh' content='0; URL=main.php'><script> alert('Блюдо добавлено.')</script></head></html>";
        

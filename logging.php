@@ -59,18 +59,18 @@ else {
 
     // Выполняем SQL-запрос
     mysql_query("SET NAMES utf8");
-    $query = "SELECT id, dish_name,descr_dish,icons,price,ingredient FROM `dish` WHERE `id_res`='$_SESSION[id]'";
+    $query = "SELECT `id`, `dish_name`, `descr_dish`, `icons`, `price`, `ingredient` FROM dish WHERE `id_res` = '$_SESSION[id]'";
     $result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
+
     $query2 = "SELECT * FROM key_words";
     $result2 = mysql_query($query2) or die('Запрос не удался: ' . mysql_error());
+
+    $query3 = "SELECT * FROM log WHERE id_res='$_SESSION[id]'";
+    $result3 = mysql_query($query3) or die('Запрос не удался: ' . mysql_error());
     // Выводим результаты в html
     $dish = mysql_fetch_array($result);
     $keywords = mysql_fetch_array($result2);
+    $log = mysql_fetch_array($result3);
     // Закрываем соединение
     mysql_close($db);
-
-    //header("location:main.php");
-
-
-
     ?>

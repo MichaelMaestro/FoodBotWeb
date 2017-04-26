@@ -3,7 +3,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Меню</title>
+    <title>Личный кабинет</title>
     <link href="style.css" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -26,17 +26,18 @@
     </div>
 
     <div class="passport">
-          <h2 class="zag2">Добро пожаловть, <?php  echo"$_SESSION[name]"?> !</h2>
+          <h2 class="zag2">Добро пожаловть, <?=$_SESSION['name']?> !</h2>
           <div class="info">
-            Телефон: <?php echo $myrow['phone']?><br>
-            Сайт ресторана: <?php echo $myrow['site']?><br>
-            Директор: <?php echo $myrow['name_dir'],' ',$myrow['fam_dir']?><br>
-            ИНН:<?php echo $myrow['inn']?>
-            ОГРН:<?php echo $myrow['ogrn']?>
-            р/с:<?php echo $myrow['rs']?>
+            Телефон: <?=$myrow['phone']?><br>
+            Сайт ресторана: <?=$myrow['site']?><br>
+            Директор: <?=$myrow['name_dir'],' ',$myrow['fam_dir']?><br>
+            ИНН:<?=$myrow['inn']?>
+            ОГРН:<?=$myrow['ogrn']?>
+            р/с:<?=$myrow['rs']?>
+            <a href="statistic.php">Статистика</a>
           </div>
           <div class="licence">
-           <img src="<?php echo $myrow['lic']; ?>">
+           <img src="<?=$myrow['lic']; ?>">
           </div>
     </div>
 
@@ -45,7 +46,7 @@
       <form action="SOMEACTION" method="post" enctype='multipart/form-data'>
         <table>
           <tr>
-            <th>да/нет</th>
+            <th>В наличии</th>
             <th>Наименование блюда</th>
             <th>Фото</th>
             <th>Описание</th>
@@ -56,7 +57,7 @@
 
           <?php do{?>
           <tr>
-            <td><input type="checkbox" name="check"></td>
+            <td><input type="checkbox" id="having" name="check"></td>
             <td><?=$dish['dish_name']?></td>
             <td><img src="<?=$dish['icons']?>"></td>
             <td><?= $dish['descr_dish']?></td>
@@ -107,58 +108,10 @@
     
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="js/bootstrap.js"></script>
-<script> 
-    $(document).ready(function(){
-         $('.popup, #no, .overlay').click(function (){
-            $('.popup, .overlay').css({'opacity':'0', 'visibility':'hidden'});
-        });
-        $('#exit').click(function (e){
-            $('.popup, .overlay').css({'opacity':'1', 'visibility':'visible'});
-            e.preventDefault();
-        });
-    });
-</script>
 <script>
-    document.getElementsByName('price')[0].onkeypress = function(e) {
-
-      e = e || event;
-
-      if (e.ctrlKey || e.altKey || e.metaKey) return;
-
-      var chr = getChar(e);
-
-      // с null надо осторожно в неравенствах, т.к. например null >= '0' => true!
-      // на всякий случай лучше вынести проверку chr == null отдельно
-      if (chr == null) return;
-
-      if (chr < '0' || chr > '9') {
-        return false;
-      }
-
-    }
-
-    function getChar(event) {
-      if (event.which == null) {
-        if (event.keyCode < 32) return null;
-        return String.fromCharCode(event.keyCode) // IE
-      }
-
-      if (event.which != 0 && event.charCode != 0) {
-        if (event.which < 32) return null;
-        return String.fromCharCode(event.which) // остальные
-      }
-
-      return null; // специальная клавиша
-    }
-
-function checkUrl() {
-
-    if ($('#Ssilka').val() == ""){
-
-        $('#filik').removeAttr('disabled');}
-    else
-        $('#filik').attr('disabled','disabled');
-}
+  $('#having')
 </script>
+<script src="js/exit.js"></script> 
+<script src="js/price+checkUrl.js"></script>
 </body>
 </html>

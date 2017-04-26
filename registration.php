@@ -14,10 +14,9 @@
     </header>
 
     <div class="backgr">
-        <div class="regForm">
-            <h2>Заполните данные о вашем заведении</h2>
-               
+        <div class="regForm">   
             <form action="save_res.php" method="post" enctype = 'multipart/form-data'>
+                <legend>Заполните данные о вашем заведении</legend>
                 <p><input type="text" value=""  name="login" placeholder="Логин*" required></p>
                 <p><input type="text" value=""  name="pass"  placeholder="Пароль*" required></p>
                 <p><input type="text"  value="" name="name" placeholder="Название ресторана*" required></p>
@@ -40,7 +39,7 @@
                 </p>
             <input type="submit" class="btn " id="reg" name="reg" value="Регистрация" disabled>
             <div class="rekviz">
-                <h2>Реквизиты*</h2>   
+                <legend>Реквизиты</legend>  
                 <p><input type="text" id="num_check" value="" name="inn" placeholder="ИНН" required></p>
                 <p><input type="text" id="num_check1" value="" name="ogrn" placeholder="ОГРН" required></p>
                 <p><input type="text" id="rs" value="" name="rs" placeholder="Расчётный счёт" required></p>
@@ -52,41 +51,11 @@
 
     </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery.maskedinput-1.2.2.js"></script>
-<script src="js/bootstrap.js"></script>
 <script>
-    $(document).ready(function(){
-        $('#remember_me').change(function(){
-            if ($(this).is(':checked')){
-                $('#reg').removeAttr('disabled');
-                $('#reg').addClass('btn-success');
-            }
 
-            else
-                $('#reg').attr('disabled', 'disabled');
-               
-        });
-    });
-  
-    $('#num_check, #num_check1').bind("change keyup input click", function() {
-    if (this.value.match(/[^0-9]/g)) {
-        this.value = this.value.replace(/[^0-9]/g, '');
-    }
-});
 </script>
-
-<script type="text/javascript">
-
- jQuery(function($) {
-      $.mask.definitions['~']='[+-]';
-      $('#phone').mask('+7(999) 999-9999');
-      $("#rs").mask("999.99.999.9.9999.9999999");
-
-
-});
-</script> 
-
+<script src="js/input_Mask.js"></script> 
 </body>
 </html>
