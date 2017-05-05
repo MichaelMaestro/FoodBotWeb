@@ -42,7 +42,7 @@
     </div>
 
     <div class="menu">
-     <h2 >Ваше меню:</h2>
+     <h2>Ваше меню:</h2>
       <form action="SOMEACTION" method="post" enctype='multipart/form-data'>
         <table>
           <tr>
@@ -57,7 +57,7 @@
 
           <?php do{?>
           <tr>
-            <td><input type="checkbox" id="having" name="check"></td>
+            <td><input type="checkbox" id="having" name="check" checked></td>
             <td><?=$dish['dish_name']?></td>
             <td><img src="<?=$dish['icons']?>"></td>
             <td><?= $dish['descr_dish']?></td>
@@ -113,5 +113,8 @@
 </script>
 <script src="js/exit.js"></script> 
 <script src="js/price+checkUrl.js"></script>
+<script >
+  
+</script>
 </body>
 </html>

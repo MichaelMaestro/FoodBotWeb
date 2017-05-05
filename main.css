@@ -14,17 +14,17 @@
 }
     .info{
     position: relative;
-    width: 640px;
-    top: 100px;
+    width: 800px;
+    top: 65px;
     left: 50px;
     font-size: 24px;
     color: #ffa71e;
     font-family: 'Comfortaa', cursive
 	}
 	.licence{
-    position: relative;
+    position: absolute;
     float: right;
-    top: -90px;
+    top: 120px;
     right: 90px;
     width: 150px;
 	}
@@ -63,7 +63,7 @@ background: #ECE9E0;
 color: #656665;
 border: 10px solid #ECE9E0;
 border-radius: 7px;
-width: 1017px;
+width: 1024px;
 } 
 .menu th {
 font-size: 18px;
