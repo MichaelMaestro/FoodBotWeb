@@ -35,7 +35,7 @@
             $maxDish = max($dishCount);
             var_dump($maxDish);
             do{
-                $dishNameQuery = mysql_query("SELECT `dish` FROM `log` GROUP BY `dish` HAVING COUNT(`dish`) =         '$maxDish'");
+                $dishNameQuery = mysql_query("SELECT `dish` FROM `log` GROUP BY `dish` HAVING COUNT(`dish`) = '$maxDish'");
                 $dishName = mysql_fetch_array($dishNameQuery);
                 $dish = $dishName[0];
             }

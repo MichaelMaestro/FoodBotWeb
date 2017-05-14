@@ -4,4 +4,11 @@
 а потом просто проверять наличие этого слова.
 
 
- 
+ <select>
+              <?php do{?>
+                <option><?= $keywords['word']?></option>
+                <?php }while($keywords = mysql_fetch_array($result2))?>
+              </select>
+
+
+              

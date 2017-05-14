@@ -38,8 +38,7 @@ session_start();//  вся процедура работает на сессия
             </div>
         </div>
     </div>
-
-
+</div>
 
 
     <div class="block-2">

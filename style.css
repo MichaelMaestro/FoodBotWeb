@@ -33,8 +33,9 @@ textarea { overflow: auto; }
 
 .logo {
         width: 100px;
+        font-size: 36px;
         float:left;
-        margin: 9px auto;
+        margin: 4px auto;
         font-family: 'Fugaz One',cursive;
         color:dodgerblue; 
 

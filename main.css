@@ -1,6 +1,7 @@
 .header input[type=submit]{
 		float:right;
-		margin-top: 10px;
+        background-color:darkred;
+		margin-top: 5px;
 		
 	}
 
@@ -14,12 +15,12 @@
 }
     .info{
     position: relative;
-    width: 640px;
-    top: 100px;
+    width: 785px;
+    top: 70px;
     left: 50px;
     font-size: 24px;
     color: #ffa71e;
-    font-family: 'Comfortaa', cursive
+    font-family: 'Comfortaa',cursive;
 	}
 	.licence{
     position: relative;
@@ -60,8 +61,7 @@ text-align: left;
 border-collapse: separate;
 border-spacing: 3px;
 background: #ECE9E0;
-color: #656665;
-border: 10px solid #ECE9E0;
+border: 5px solid #ECE9E0;
 border-radius: 7px;
 width: 1017px;
 } 
@@ -73,8 +73,9 @@ width: 300px;
 .menu td {
 font-size: 15px;
 font-weight: bolder;
-background: #F5D7BF;
+background: #f1f1f3;
 padding: 10px;
+border-radius: 5px;
 }
 .menu td img{
 max-width: 150px;
@@ -187,7 +188,6 @@ max-height: 150px;
 .addDish h2{
 font-family:'Lobster',cursive;
 font-size: 45px;
-margin-left: 200px;
 margin-top: 0;
 color: #ffa71e;
 }
@@ -196,10 +196,7 @@ color: #ffa71e;
     width: 300px;
     height: 100px;
 }
-.input-group2{
-padding-left: 350px;
-}
-    
+
 .picture img{
 	max-width: 300px;
 	position: relative;
