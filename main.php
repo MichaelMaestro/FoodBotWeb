@@ -30,7 +30,7 @@
           <div class="info">
             Телефон: <?=$myrow['phone']?><br>
             Сайт ресторана: <?=$myrow['site']?><br>
-            Директор: <?=$myrow['name_dir'],' ',$myrow['fam_dir']?><br>
+            Директор: <?=$myrow['name_dir']?><br>
             ИНН:<?=$myrow['inn']?>
             ОГРН:<?=$myrow['ogrn']?>
             р/с:<?=$myrow['rs']?>
@@ -42,11 +42,11 @@
     </div>
 
     <div class="menu">
-     <h2>Ваше меню:</h2>
+     <h2 >Ваше меню:</h2>
       <form action="SOMEACTION" method="post" enctype='multipart/form-data'>
         <table>
           <tr>
-            <th>В наличии</th>
+
             <th>Наименование блюда</th>
             <th>Фото</th>
             <th>Описание</th>
@@ -57,7 +57,7 @@
 
           <?php do{?>
           <tr>
-            <td><input type="checkbox" id="having" name="check" checked></td>
+
             <td><?=$dish['dish_name']?></td>
             <td><img src="<?=$dish['icons']?>"></td>
             <td><?= $dish['descr_dish']?></td>
@@ -108,13 +108,7 @@
     
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="js/bootstrap.js"></script>
-<script>
-  $('#having')
-</script>
 <script src="js/exit.js"></script> 
 <script src="js/price+checkUrl.js"></script>
-<script >
-  
-</script>
 </body>
 </html>

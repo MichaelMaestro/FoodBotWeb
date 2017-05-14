@@ -40,7 +40,7 @@
             <input type="submit" class="btn " id="reg" name="reg" value="Регистрация" disabled>
             <div class="rekviz">
                 <legend>Реквизиты</legend>  
-                <p><input type="text" id="num_check" value="" name="inn" placeholder="ИНН" required></p>
+                <p><input type="text" id="num_check" value="" name="inn" placeholder="ИНН" maxlength="12" required></p>
                 <p><input type="text" id="num_check1" value="" name="ogrn" placeholder="ОГРН" required></p>
                 <p><input type="text" id="rs" value="" name="rs" placeholder="Расчётный счёт" required></p>
             </div>

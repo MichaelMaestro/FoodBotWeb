@@ -32,7 +32,6 @@
 .regForm input[type=text], .regForm input[type=email]{
     width: 200px;
     height: 30px;
-    border-radius: 6px;
     padding:5px;
 }
 
@@ -44,7 +43,7 @@
     display:none;
 }
 .regForm img{
-    max-width: 30px;
+    max-width: 20px;
 }
 
 .rekviz{

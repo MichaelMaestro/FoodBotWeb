@@ -1,5 +1,8 @@
 <?php
+//Старт сессии
 session_start();
+
+//Считываем переменные с формы
 if (isset($_POST['dish_name'])) { $dish_name = $_POST['dish_name']; if ($dish_name == '') { unset($dish_name);} } 
 if (isset($_POST['descr'])) { $descr= $_POST['descr']; if ($descr =='') { unset($descr);} }
 if (isset($_POST['price'])) { $price=$_POST['price']; if ($price =='') { unset($price);} }
@@ -7,12 +10,10 @@ if (isset($_POST['ingr'])) { $ingr=$_POST['ingr']; if ($ingr =='') { unset($ingr
 if (isset($_POST['picture'])) { $picture=$_POST['picture']; if ($picture =='') { unset($picture);} }
 
 
-
-if (empty($dish_name) or empty($price) or empty($ingr))
-{
+//Проверка на заполненность обязательных полей
+if (empty($dish_name) or empty($price) or empty($ingr)){
 	echo("<html><head><meta charset='utf8' http-equiv='Refresh' content='0; URL=main.php'> <script> alert('Вы не заполнили необходимые поля! Вернитесь и заполните их!')</script></head></html>");
 	exit ();
-
 }
 
 $dish_name = stripslashes($dish_name);
@@ -36,34 +37,42 @@ include ("bd.php");
 
 if(empty($picture)){
   $blacklist = array(".php", ".phtml", ".php3", ".php4", ".html", ".htm");
-    foreach ($blacklist as $item)
-      if(preg_match("/$item\$/i", $_FILES['dish_pic']['name'])) 
-        exit("<html><head><meta http-equiv='Refresh' content='0; URL=main.php'><script>alert ('Выберите картинку!')</script></head></html>");
-    $type = $_FILES['dish_pic']['type'];
-    $size = $_FILES['dish_pic']['size'];
-    if ($type != "image/jpg" && $type != "image/jpeg" && $type != "image/PNG" && $type != "image/gif" &&  $type != "image/bmp") 
-      exit("<html><head><meta http-equiv='Refresh' content='0; URL=main.php'><script>alert ('Выбранный вами файл не картинка!')</script></head></html>");
-    if ($size > 1024*3*1024) 
-      exit("<html><head><meta http-equiv='Refresh' content='0; URL=main.php'><script> alert ('Выберите картинку размер которой меньше 3мБ!')</script></head></html>");
-    $uploadfile = "dish_photos/".$_FILES['dish_pic']['name'];
-     move_uploaded_file($_FILES['dish_pic']['tmp_name'], $uploadfile);
+  foreach ($blacklist as $item)
+
+  if(preg_match("/$item\$/i", $_FILES['dish_pic']['name'])){ 
+    exit("<html><head><meta http-equiv='Refresh' content='0; URL=main.php'><script>alert ('Выберите картинку!')</script></head></html>");}
+
+  $type = $_FILES['dish_pic']['type'];
+  $size = $_FILES['dish_pic']['size'];
+
+  if ($type != "image/jpg" && $type != "image/jpeg" && $type != "image/PNG" && $type != "image/gif" &&  $type != "image/bmp"){ 
+    exit("<html><head><meta http-equiv='Refresh' content='0; URL=main.php'><script>alert ('Выбранный вами файл не картинка!')</script></head></html>");}
+
+  if ($size > 1024*3*1024){ 
+    exit("<html><head><meta http-equiv='Refresh' content='0; URL=main.php'><script> alert ('Выберите картинку размер которой меньше 3мБ!')</script></head></html>");}
+
+  $uploadfile = "dish_photos/".$_FILES['dish_pic']['name'];
+  move_uploaded_file($_FILES['dish_pic']['tmp_name'], $uploadfile);
      
-    mysql_query("SET NAMES utf8");
+  mysql_query("SET NAMES utf8");
+  $q = mysql_query("SELECT id FROM dish WHERE dish_name='$dish_name'",$db);
+  $myrow = mysql_fetch_array($q);
+  
+  if (!empty($myrow['id'])){
+    exit ("<html><head><meta http-equiv='Refresh' content='0; URL=main.php'><script> alert ('В вашем ресторане уже есть блюдо с таким названием! Попробуйте придумать другое.')</script></head></html>");
+  }
 
- /* $check = mysql_query("SELECT dishes.id_res dish.dish_name FROM dish, dishes WHERE dishes.id_res='$_SESSION[id]' and dish.dish_name='$dish_name' and dish.id = dishes.id_res",$db);
-  $myrow = mysql_fetch_array($check);
- if ($myrow['id_res']==$_SESSION[id]  &&  $myrow['dish_name']==$dish_name)
-    exit ("<html><head><meta http-equiv='Refresh' content='0; URL=main.php'><script> alert ('Извините, в меню вашего ресторана уже есть такое блюдо.')</script></head></html>");*/
+  $result = mysql_query ("INSERT INTO dish (`dish_name`, `icons`,`descr_dish`,`price`,`ingredient`,`id_res`) VALUES ('$dish_name', '$uploadfile','$descr','$price','$ingr','$_SESSION[id]')");
+  
+  if ($result =='TRUE'){
+    echo "<html><head><meta charset='utf8'><script> alert('Блюдо добавлено.')</script></head></html>";
+    error_reporting(0);
+    header("location:main.php");
+  }
 
-    $result= mysql_query ("INSERT INTO dish (`dish_name`, `icons`,`descr_dish`,`price`, `ingredient`,`id_res`) VALUES ('$dish_name', '$uploadfile','$descr','$price','$ingr','$_SESSION[id]')");
-    if ($result =='TRUE'){
-     echo "<html><head><meta charset='utf8'><script> alert('Блюдо добавлено.')</script></head></html>";
-     error_reporting(0);
-     header("location:main.php");
-    }
-    else{
+  else{
     echo "<html><head><meta charset='utf8'><script> alert('Что-то пошло не так.')</script></head></html>";
-    }
+  }
 }
 
 else{
@@ -73,17 +82,22 @@ else{
   $picture = trim($picture);
 
   mysql_query("SET NAMES utf8");
-  $result2 = mysql_query("INSERT INTO `dish` (`dish_name`, `icons`, `descr_dish`, `price`, `ingredient`,`id_res`) VALUES ('$dish_name', '$picture','$descr','$price','$ingr','$_SESSION[id]')");
-  if ($result2 =='TRUE')
-  {
-     echo "<html><head><meta charset='utf8' http-equiv='Refresh' content='0; URL=main.php'><script> alert('Блюдо добавлено.')</script></head></html>";
-       
-     error_reporting(0);
-     
+
+  $q = mysql_query("SELECT id FROM dish WHERE dish_name='$dish_name'",$db);
+  $myrow = mysql_fetch_array($q);
+  
+  if (!empty($myrow['id'])){
+    exit ("<html><head><meta http-equiv='Refresh' content='0; URL=main.php'><script> alert ('В вашем ресторане уже есть блюдо с таким названием! Попробуйте придумать другое.')</script></head></html>");
   }
+  
+  $result2 = mysql_query("INSERT INTO `dish` (`dish_name`, `icons`, `descr_dish`, `price`, `ingredient`,`id_res`) VALUES ('$dish_name', '$picture','$descr','$price','$ingr','$_SESSION[id]')");
+  if ($result2 =='TRUE'){
+    echo "<html><head><meta charset='utf8' http-equiv='Refresh' content='0; URL=main.php'><script> alert('Блюдо добавлено.')</script></head></html>";
+    error_reporting(0);
+  }
+
   else{
     echo "<html><head><meta charset='utf8' http-equiv='Refresh' content='0; URL=main.php'><script> alert('Что-то пошло не так.')</script></head></html>";
-     
   }
 }
 

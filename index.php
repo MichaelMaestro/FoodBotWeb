@@ -86,6 +86,7 @@ session_start();//  вся процедура работает на сессия
                 <img src="images/map-marker.png">
             </div>
         </div>
+
     </div>
 
 <div class="footer">
