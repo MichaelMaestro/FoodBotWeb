@@ -1,5 +1,9 @@
 <?php
 session_start();//  вся процедура работает на сессиях. Именно в ней хранятся данные  пользователя, пока он находится на сайте. 
+if(isset($_COOKIE['Kulik'])){
+
+echo "<script> window.location = 'main.php'</script>";
+}
 ?>
 <html lang="ru">
 <head>

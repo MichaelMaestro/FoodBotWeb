@@ -1,4 +1,13 @@
-<?php require_once('logging.php'); ?>
+<?php 
+if(isset($_COOKIE['Kulik'])){
+  require_once('cookie.php');
+  echo "<script>console.log(2)</script>";
+}
+else{
+  require_once('logging.php');
+  echo "<script>console.log(3)</script>";
+}
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,6 +16,7 @@
     <link href="style.css" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css" rel="stylesheet"> 
 </head>
 <body>
@@ -34,8 +44,8 @@
             Директор: <?=$myrow['name_dir']?><br>
             ИНН:<?=$myrow['inn']?>
             ОГРН:<?=$myrow['ogrn']?>
-            р/с:<?=$myrow['rs']?>
-            <a href="statistic.php">Статистика</a>
+            р/с:<?=$myrow['rs']?><br>
+            <a href="statistic.php"><i class="fa fa-bar-chart" aria-hidden="true"></i>Статистика </a>
           </div>
           <div class="licence">
            <img src="<?=$myrow['lic']; ?>">
@@ -62,7 +72,7 @@
             <td><?= $dish['descr_dish']?></td>
             <td><?= $dish['ingredient']?></td>
             <td><?= $dish['price']?> руб.</td>
-            <td><div class="chips chips-initial" oninput="showUser(this.value)"></div></td> 
+            <td><div class="chips chips-autocomplete" oninput="addKeyWord(this.value)"></div></td> 
 
             <?php
               }while($dish = mysql_fetch_array($result));
@@ -84,7 +94,7 @@
               <br>
               <input type="file" id="filik" name="dish_pic" onchange="k()">
               <label for="filik">
-                <img src="images/add_icon.png"> 
+                <i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i>
               </label>
             </div>
           </div>
@@ -104,9 +114,18 @@
 <script src="js/price+checkUrl.js"></script>
 <script>
    $('.chips').material_chip(); 
+    $('.chips-autocomplete').material_chip({
+    autocompleteOptions: {
+      data: {
+        //вставить из базы каким то ХЕРОМ
+      },
+      limit: Infinity,
+      minLength: 1
+    }
+  });
 </script>
 <script>
-function showUser(str) {
+function addKeyWord(str) {
    
         if (window.XMLHttpRequest) {
             // code for IE7+, Firefox, Chrome, Opera, Safari

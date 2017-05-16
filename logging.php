@@ -1,36 +1,34 @@
 <?php
-session_start();//  вся процедура работает на сессиях. Именно в ней хранятся данные  пользователя, пока он находится на сайте. Очень важно запустить их в  самом начале странички!!!
-if (isset($_POST['login'])) { $login = $_POST['login']; if ($login == '') { unset($login);} } //заносим введенный пользователем логин в переменную $login, если он пустой, то уничтожаем переменную
-if (isset($_POST['pass'])) { $password=$_POST['pass']; if ($password =='') { unset($password);} }
+session_start();
+//  вся процедура работает на сессиях. Именно в ней хранятся данные  пользователя, пока он находится на сайте. Очень важно запустить их в  самом начале странички!!!
+if (isset($_POST['login'])){ 
+    $login = $_POST['login'];
+    $login = stripslashes($login);
+    $login = htmlspecialchars($login);
+    $login = trim($login);
+    if ($login == ''){
+     unset($login);
+    } 
+} 
+//заносим введенный пользователем логин в переменную $login, если он пустой, то уничтожаем переменную
+if (isset($_POST['pass'])){
+     $password=$_POST['pass'];
+     $password = stripslashes($password);
+     $password = htmlspecialchars($password);
+     $password = trim($password);
+     if ($password ==''){
+        unset($password);
+    } 
+}
 //заносим введенный пользователем пароль в переменную $password, если он пустой, то уничтожаем переменную
 
-if(isset($_COOKIE['login']) and isset($_COOKIE['password'])){
 
-$login=$_COOKIE['login'];
-$password=$_COOKIE['password'];
-echo "<script>
-document.getElementById('login').value='$login';
-document.getElementById('password').value='$password';
-</script>";
-}
-
-if (empty($login) or empty($password)) //если пользователь не ввел логин или пароль, то выдаем ошибку и останавливаем скрипт
-{
-    exit ("<html><head><meta charset='utf8' http-equiv='Refresh' content='0; URL=index.php'><script> alert('Введённый логин или пароль не правильный!')</script></head></html>");
-    
-}
-//если логин и пароль введены,то обрабатываем их, чтобы теги и скрипты не работали, мало ли что люди могут ввести
-$login = stripslashes($login);
-$login = htmlspecialchars($login);
-$password = stripslashes($password);
-$password = htmlspecialchars($password);
-//удаляем лишние пробелы
-$login = trim($login);
-$password = trim($password);
+include ("bd.php");
 // подключаемся к базе
-include ("bd.php");// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь
+// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь
 mysql_query("SET NAMES utf8");
-$result = mysql_query("SELECT * FROM res WHERE login='$login'",$db); //извлекаем из базы все данные о пользователе с введенным логином
+$result = mysql_query("SELECT * FROM res WHERE login='$login'",$db); 
+//извлекаем из базы все данные о пользователе с введенным логином
 $myrow = mysql_fetch_array($result);
 if (empty($myrow['pass']))
 {
@@ -40,12 +38,13 @@ if (empty($myrow['pass']))
 else {
     //если существует, то сверяем пароли
     if (password_verify($password,$myrow['pass'])){
-        if($password==$myrow['pass'] and isset($_POST['remember_me'])){
-          setcookie('login',$login,time()+3600);
-          setcookie('password',$password,time()+3600);
+        if(isset($_POST['remember_me'])){
+          setcookie('Kulik',true,time()+3600);
         }
-
-        //если пароли совпадают, то запускаем пользователю сессию! Можете его поздравить, он вошел!
+    if($myrow['acs']==0){
+        exit ("<html><head><meta http-equiv='Refresh' content='0; URL=index.php'><script> alert('Ваш аккаунт ещё не верифицирован, пожалуйта подождите пока мы его проверим!')</script></head></html>");
+    }
+        //если пароли совпадают и аккаунт проверен то запускаем пользователя в сессию! Можете его поздравить, он вошел!
         $_SESSION['name']=$myrow['name'];//получаем имя залогированного ресторана для приветсвия.
         $_SESSION['login']=$myrow['login'];
         $_SESSION['id']=$myrow['id'];//эти данные очень часто используются, вот их и будет "носить с собой" вошедший пользователь

@@ -8,7 +8,7 @@
 	}
 
 .content{
-		margin:0 100px 0 100px;
+		padding:0 100px 0 100px;
 	}
 	
 
@@ -31,7 +31,7 @@
 		.hero-unit a{
 			color:dodgerblue;
 		}
-		.hero-unit a:hover{
+		.hero-unit a:hover, .hero-unit a:focus, .hero-unit a:visited{
 			color:white;
 			text-decoration: none;
 		}

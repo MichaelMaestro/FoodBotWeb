@@ -1,5 +1,5 @@
 <?php
-$q = intval($_GET['q']);
+$q = strval($_GET['q']);
 
 $con = mysqli_connect('localhost','root','','foodbot2');
 if (!$con) {

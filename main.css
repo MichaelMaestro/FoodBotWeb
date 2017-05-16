@@ -22,7 +22,11 @@
     color: #ffa71e;
     font-family: 'Comfortaa',cursive;
 	}
-	.licence{
+    .info a:hover{
+        text-decoration: none;
+        color:white;
+    }
+ 	.licence{
     position: relative;
     float: right;
     top: -90px;
@@ -131,12 +135,10 @@ max-height: 150px;
 .addDish label{
     position: relative;
     left: 265px;
-    bottom: 50px;
+    bottom: 52px;
 
 }
-.addDish label img{
-   max-width: 28px;
-}
+
 .addDish input[type=submit]{
 	position: relative;
     left: 400px;
