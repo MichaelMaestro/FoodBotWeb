@@ -1,18 +1,6 @@
 <?php
 session_start();
 include('bd.php');
-
-/*if(isset($_COOKIE['Kulik'])){
-   
-    /*$passwordQuery = mysql_query("SELECT pass FROM res WHERE login = '$login'");
-    $passwordArr = mysql_fetch_array($passwordQuery);
-    
-    echo "<script>
-document.getElementById('login').value='$login';
-document.getElementById('pass').value='$password';
-console.log('$password');
-</script>";
-}*/
 $login = $_SESSION['login'];
 mysql_query("SET NAMES utf8");
 $result = mysql_query("SELECT * FROM res WHERE login='$login'",$db); 

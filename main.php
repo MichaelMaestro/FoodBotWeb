@@ -72,7 +72,7 @@ else{
             <td><?= $dish['descr_dish']?></td>
             <td><?= $dish['ingredient']?></td>
             <td><?= $dish['price']?> руб.</td>
-            <td><div class="chips chips-autocomplete" oninput="addKeyWord(this.value)"></div></td> 
+            <td><div class="chips chips-autocomplete"></div></td> 
 
             <?php
               }while($dish = mysql_fetch_array($result));
@@ -123,9 +123,26 @@ else{
       minLength: 1
     }
   });
+
+
+     $('.chips').on('chip.add', function(e, chip){
+      $('.material-icons').replaceWith("<i class='material-icons close fa fa-times' aria-hidden='true'></i>");
+      if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+      }
+      else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.open("GET","task.php?q="+chip.tag,true);
+      xmlhttp.send();
+      console.log(1);
+  });
 </script>
+
 <script>
-function addKeyWord(str) {
+function addKeyWord(str){
    
         if (window.XMLHttpRequest) {
             // code for IE7+, Firefox, Chrome, Opera, Safari

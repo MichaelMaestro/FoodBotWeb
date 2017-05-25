@@ -35,6 +35,9 @@
 			color:white;
 			text-decoration: none;
 		}
+		.hero-unit a:focus, .hero-unit a:visited{
+			color:dodgerblue;
+		}
 		/*login form*/
 		.login {
 			position: relative;

@@ -1,17 +1,15 @@
 <?php
+include('bd.php');
+mysql_query("SET NAMES utf8");
 $q = strval($_GET['q']);
 
-$con = mysqli_connect('localhost','root','','foodbot2');
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-}
-
-mysqli_select_db($con,"ajax_demo");
-mysqli_set_charset($con, "utf8");
-$sql="INSERT INTO key_words (`word`) VALUES (".$q.")";
-$result = mysqli_query($con,$sql);
-
-mysqli_close($con);
+$q = htmlspecialchars($q);
+$q = stripslashes($q);
+$q = trim($q);
+/*$result = mysql_query("SELECT word FROM key_words");
+$resultArray = mysql_fetch_array($result);*/
+$addQuery=mysql_query("INSERT INTO key_words  (`word`) VALUES ('$q')");
+mysql_close($db);
 ?>
 </body>
 </html>
