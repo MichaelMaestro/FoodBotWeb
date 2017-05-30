@@ -5,6 +5,7 @@
     background-size: cover;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
 }
+
 .regForm{
     margin:  0px auto;
     padding: 20px 20px 20px 20px;
@@ -22,6 +23,7 @@
 .regForm hr{
     width:500px;
 }
+
 .regForm p {
     margin: 10px 0 0;
 }
@@ -29,6 +31,7 @@
 .regForm p:first-child {
     margin-top: 0;
 }
+
 .regForm input[type=text], .regForm input[type=email]{
     width: 200px;
     height: 30px;
@@ -39,9 +42,11 @@
     position: relative;
     left: 225px;
 }
+
 .regForm input[type=file]{
     display:none;
 }
+
 .regForm img{
     max-width: 20px;
 }

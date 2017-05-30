@@ -17,9 +17,8 @@
     $dishQuery = mysql_query("SELECT `id_dish`, `dish`, count(*) AS howmatch FROM `log`
         WHERE id_res = '$_SESSION[id]' GROUP BY `id_dish` HAVING howmatch > 1")or die('Запрос не удался: ' . mysql_error());
     $dish = mysql_fetch_array($dishQuery);
-
-    
 ?>
+
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -80,11 +79,5 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script> 
 <script src="js/exit.js"></script>
-<script>
-/*$(document).ready(function(){
-    var onePrice = valueOf('#price');
-    console.log(onePrice);
-    });*/
-</script>
 </body>
 </html>

@@ -6,12 +6,11 @@
     <link href="css/bootstrap.css" rel="stylesheet">
 </head>
 <body> 
-
-    <header class="header">
-        <div class="shell">
-           <a href="index.php"><h1 class="logo">FoodBot</h1></a>
-        </div>  
-    </header>
+<header class="header">
+    <div class="shell">
+        <a href="index.php"><h1 class="logo">FoodBot</h1></a>
+    </div>  
+</header>
 
 <div class="refresh_form">
 	<form class="form-horizontal" action="refresh.php" method="post">

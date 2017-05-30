@@ -1,15 +1,19 @@
 <?php
 include('bd.php');
 mysql_query("SET NAMES utf8");
-/*$q = strval($_GET['q']);
+$num_dish = strval($_GET['num_dish']);
+$q = strval($_GET['q']);
 
 $q = htmlspecialchars($q);
 $q = stripslashes($q);
-$q = trim($q);*/
+$q = trim($q);
+
 $max = 0;
 /*$result = mysql_query("SELECT word FROM key_words");
 $resultArray = mysql_fetch_array($result);*/
-//$addQuery = mysql_query("INSERT INTO key_words  (`word`) VALUES ('$q')");
+
+$addQuery=mysql_query("INSERT INTO key_words  (`word`) VALUES ('$q')");
+
 $lastWordQuerry = mysql_query("SELECT id FROM key_words");
 $lastWord = mysql_fetch_array($lastWordQuerry);
 
@@ -20,8 +24,9 @@ if ($lastWord[0] > $max){
 }
 }
 while($lastWord = mysql_fetch_array($lastWordQuerry));
-//$addToDishes =mysql_query("INSERT INTO dishes (id_keyword, id_dish) VALUES('$max',) ") 
-echo $max;
-echo $num_dish
+
+$addToDishes =mysql_query("INSERT INTO dishes (id_keyword, id_dish) VALUES('$max','$num_dish') "); 
 mysql_close($db);
 ?>
+</body>
+</html>

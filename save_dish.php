@@ -16,6 +16,7 @@ if (empty($dish_name) or empty($price) or empty($ingr)){
 	exit ();
 }
 
+//Обработка полей функциями защиты от инъекций
 $dish_name = stripslashes($dish_name);
 $dish_name = htmlspecialchars($dish_name);
 $descr = stripslashes($descr);
@@ -25,8 +26,7 @@ $price = htmlspecialchars($price);
 $ingr = stripslashes($ingr);
 $ingr = htmlspecialchars($ingr);
 
-
-
+//обрезаем пробелы
 $dish_name = trim($dish_name);
 $descr = trim($descr);
 $price = trim($price);

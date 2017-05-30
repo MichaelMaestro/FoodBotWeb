@@ -79,7 +79,8 @@ $uploadfile = "res_licences/".$_FILES['somename']['name'];
 move_uploaded_file($_FILES['somename']['tmp_name'], $uploadfile);
 
 // подключаемся к базе
-include ("bd.php");// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь
+include ("bd.php");
+
 // проверка на существование пользователя с таким же логином
 mysql_query("SET NAMES utf8");
 $result = mysql_query("SELECT id FROM res WHERE login='$login'",$db);
