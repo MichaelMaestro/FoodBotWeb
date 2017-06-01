@@ -52,6 +52,7 @@ textarea { overflow: auto; }
     width:540px;
     margin-left:20px; 
     opacity: 1;
+    margin-bottom:-2px;
 }
 
 .text h3{ 

@@ -47,9 +47,7 @@
         </form>
     </div>
 </div>
-
 <div class="footer"></div>
-
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery.maskedinput-1.2.2.js"></script>
 <script src="js/input_Mask.js"></script> 

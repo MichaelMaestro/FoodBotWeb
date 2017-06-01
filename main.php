@@ -57,8 +57,9 @@ else{
 
 <div class="menu">
   <h2>Меню:</h2>
-  <table class="center-align">
+  <table>
     <tr>
+      <th>Наличие блюда</th>
       <th>Наименование блюда</th>
       <th>Фото</th>
       <th>Описание</th>
@@ -69,7 +70,8 @@ else{
 
 <?php do{?>
     <tr>
-      <td><?=$dish['dish_name']?></td>
+      <td><input type="checkbox" id="check" checked></td>
+      <td id="dish_name"><?=$dish['dish_name']?></td>
       <td><img src="<?=$dish['icons']?>"></td>
       <td><?= $dish['descr_dish']?></td>
       <td><?= $dish['ingredient']?></td>
@@ -106,7 +108,9 @@ mysql_free_result($key_wordsQuery);
       <input type="text"  value="" name="price" placeholder="Цена">
     </div>
     <textarea name="descr" placeholder="Описание"></textarea>
-    <input class="center-align" type="submit"  value="Добавить блюдо">    
+    <div class="center-align">
+    <input type="submit"  value="Добавить блюдо">
+    </div>    
   </form>  
 </div>
    
@@ -116,22 +120,52 @@ mysql_free_result($key_wordsQuery);
 <script src="js/exit.js"></script> 
 <script src="js/price+checkUrl.js"></script>
 <script>
+$(document).ready(function(){
+        $('#check').change(function(){
+            if ($(this).is(':checked')){
+              if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+              }
+              else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+              }
+              xmlhttp.open("GET","update.php?f=1",true);
+              xmlhttp.send();
+              console.log('мы поменяли твой флажок хозяин');
+              console.log($('#dish_name')[].value)
+            }
+            else{
+              if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+              }
+              else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+              }
+              xmlhttp.open("GET","update.php?f=0",true);
+              xmlhttp.send();
+              console.log('мы разменяли твой флажок хозяин');
+            }    
+        });
+    });
+</script>
+<script>
    $('.chips').material_chip(); 
     $('.chips-autocomplete').material_chip({
     autocompleteOptions: {
       data: {
-      //code
+        //вставить из базы каким то ХЕРОМ
       },
       limit: Infinity,
       minLength: 1
     }
   });
-
-
-     $('.chips').on('chip.add', function(e, chip){
-
+  
+  $('.chips').on('chip.add', function(e, chip){
       $('.material-icons').replaceWith("<i class='material-icons close fa fa-times' aria-hidden='true'></i>");
-
       if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -141,10 +175,26 @@ mysql_free_result($key_wordsQuery);
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
       }
       xmlhttp.open("GET","save_key.php?q="+chip.tag,true);
-      //xmlhttp.open("GET","save_key.php?num_dish = ",true)
       xmlhttp.send();
+      console.log(1);
   });
+
+  /*$('.chips').on('chip.delete', function(e, chip){
+      if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+      }
+      else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.open("GET","remove_key.php?q="+chip.tag,true);
+      xmlhttp.send();
+      
+  });*/
+
 </script>
+
 </body>
 </html>
 

@@ -30,7 +30,7 @@ include ("bd.php");
 
 mysql_query("SET NAMES utf8");
 //извлекаем из базы все данные о пользователе с введенным логином
-$loginQuery = mysql_query("SELECT * FROM res WHERE login='$login'",$db); 
+$loginQuery = mysql_query("SELECT * FROM res WHERE login='$login'",$db)or die('Запрос не удался: ' . mysql_error()); 
 $result = mysql_fetch_array($loginQuery);
 
 //если пользователя с введенным логином не существует, то выводим сообщение и останавливаем скрипт с редиректом на главную страницу.
@@ -63,17 +63,13 @@ else {
 
 //после авторизации и проверки  выполняем SQL-запросы для получения данных отображаемых на сайте
 mysql_query("SET NAMES utf8");
-$dishQuery = mysql_query("SELECT `id`, `dish_name`, `descr_dish`, `icons`, `price`, `ingredient` FROM dish") or die('Запрос не удался: ' . mysql_error());
+$dishQuery = mysql_query("SELECT `id`, `dish_name`, `descr_dish`, `icons`, `price`, `ingredient` FROM dish WHERE `id_res`='$_SESSION[id]'") or die('Запрос не удался: ' . mysql_error());
 
 $key_wordsQuery = mysql_query("SELECT * FROM key_words") or die('Запрос не удался: ' . mysql_error());
 
 // Выводим результаты в html
 $dish = mysql_fetch_array($dishQuery);
-$keywords = mysql_fetch_assoc($key_wordsQuery);
-$key_mas = array();
-while($keywords = mysql_fetch_assoc($key_wordsQuery)){
-  $key_mas[] = $keywords;
-}
+$keywords = mysql_fetch_array($key_wordsQuery);
     
 // Закрываем соединение
 mysql_close($db);

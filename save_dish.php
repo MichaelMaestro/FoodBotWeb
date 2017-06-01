@@ -55,14 +55,14 @@ if(empty($picture)){
   move_uploaded_file($_FILES['dish_pic']['tmp_name'], $uploadfile);
      
   mysql_query("SET NAMES utf8");
-  $q = mysql_query("SELECT id FROM dish WHERE dish_name='$dish_name'",$db);
+  $q = mysql_query("SELECT id FROM dish WHERE dish_name='$dish_name'",$db)or die('Запрос не удался: ' . mysql_error());
   $myrow = mysql_fetch_array($q);
   
   if (!empty($myrow['id'])){
     exit ("<html><head><meta http-equiv='Refresh' content='0; URL=main.php'><script> alert ('В вашем ресторане уже есть блюдо с таким названием! Попробуйте придумать другое.')</script></head></html>");
   }
 
-  $result = mysql_query ("INSERT INTO dish (`dish_name`, `icons`,`descr_dish`,`price`,`ingredient`,`id_res`) VALUES ('$dish_name', '$uploadfile','$descr','$price','$ingr','$_SESSION[id]')");
+  $result = mysql_query ("INSERT INTO dish (`dish_name`, `icons`,`descr_dish`,`price`,`ingredient`,`id_res`) VALUES ('$dish_name', '$uploadfile','$descr','$price','$ingr','$_SESSION[id]')")or die('Запрос не удался: ' . mysql_error());
   
   if ($result =='TRUE'){
     echo "<html><head><meta charset='utf8'><script> alert('Блюдо добавлено.')</script></head></html>";
@@ -83,14 +83,14 @@ else{
 
   mysql_query("SET NAMES utf8");
 
-  $q = mysql_query("SELECT id FROM dish WHERE dish_name='$dish_name'",$db);
+  $q = mysql_query("SELECT id FROM dish WHERE dish_name='$dish_name'",$db)or die('Запрос не удался: ' . mysql_error());
   $myrow = mysql_fetch_array($q);
   
   if (!empty($myrow['id'])){
     exit ("<html><head><meta http-equiv='Refresh' content='0; URL=main.php'><script> alert ('В вашем ресторане уже есть блюдо с таким названием! Попробуйте придумать другое.')</script></head></html>");
   }
   
-  $result2 = mysql_query("INSERT INTO `dish` (`dish_name`, `icons`, `descr_dish`, `price`, `ingredient`,`id_res`) VALUES ('$dish_name', '$picture','$descr','$price','$ingr','$_SESSION[id]')");
+  $result2 = mysql_query("INSERT INTO `dish` (`dish_name`, `icons`, `descr_dish`, `price`, `ingredient`,`id_res`) VALUES ('$dish_name', '$picture','$descr','$price','$ingr','$_SESSION[id]')")or die('Запрос не удался: ' . mysql_error());
   if ($result2 =='TRUE'){
     echo "<html><head><meta charset='utf8' http-equiv='Refresh' content='0; URL=main.php'><script> alert('Блюдо добавлено.')</script></head></html>";
     error_reporting(0);

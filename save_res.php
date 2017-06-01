@@ -62,6 +62,7 @@ $blacklist = array(".php", ".phtml", ".php3", ".php4", ".html", ".htm");
 foreach ($blacklist as $item)
 
 if(preg_match("/$item\$/i", $_FILES['somename']['name'])){
+ 
  exit("<html><head><meta charset='utf8' http-equiv='Refresh' content='0 URL=registration.php'><script> alert('Вы пытаетесь загрузить файл запрещённого формата!');</script></head></html>");
 }
 $type = $_FILES['somename']['type'];
@@ -83,25 +84,25 @@ include ("bd.php");
 
 // проверка на существование пользователя с таким же логином
 mysql_query("SET NAMES utf8");
-$result = mysql_query("SELECT id FROM res WHERE login='$login'",$db);
+$result = mysql_query("SELECT id FROM res WHERE login='$login'",$db) or die('Запрос не удался: ' . mysql_error());
 $myrow = mysql_fetch_array($result);
  if (!empty($myrow['id'])){
     exit ("<html><head><meta http-equiv='Refresh' content='0; URL=registration.php'><script> alert ('Извините, введённый вами логин уже зарегистрирован. Введите другой логин.')</script></head></html>");
   }
 
 $password = password_hash($password, PASSWORD_DEFAULT);
-$result2 = mysql_query ("INSERT INTO `res` (`name`, `inn`, `ogrn`, `rs`, `phone`, `site`, `name_dir`,`e-mail`,`login`, `pass`,`lic`) VALUES('$name','$inn','$ogrn','$rs','$phone','$site','$name_dir','$email','$login','$password','$uploadfile')");
 
-$res_query = mysql_query("SELECT id FROM res WHERE login='$login'",$db);
+$result2 = mysql_query ("INSERT INTO `res` (`name`, `inn`, `ogrn`, `rs`, `phone`, `site`, `name_dir`,`e-mail`,`login`, `pass`,`lic`) VALUES('$name','$inn','$ogrn','$rs','$phone','$site','$name_dir','$email','$login','$password','$uploadfile')")or die('Запрос не удался: ' . mysql_error());
+
+
+$res_query = mysql_query("SELECT id FROM res WHERE login='$login'",$db)or die('Запрос не удался: ' . mysql_error());
 $id_res = mysql_fetch_array($res_query);
 
 
-$result3 = mysql_query ("INSERT INTO `resbuild` (`address`,`id_res`) VALUES('$address','$id_res[id]')");
-
-//проверяем загрузил ли пользователь фото, если да то ставим в базе метку 1;
-
+$result3 = mysql_query ("INSERT INTO `resbuild` (`address`,`id_res`,`user_id`) VALUES('$address','$id_res[id]', '237001276')") or die('Запрос не удался: ' . mysql_error());
 
 // Проверяем, есть ли ошибки
+
 if ($result2=='TRUE' && $result3=='TRUE')
 {
    echo "<html><head><script> alert('Вы успешно зарегистрированы! Теперь вы можете зайти на сайт.')</script></head></html>";

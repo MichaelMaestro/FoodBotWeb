@@ -15,7 +15,7 @@ if (empty($email)) //если пользователь не ввел e-mail, т�
    exit ("<html><head><meta charset='utf8' http-equiv='Refresh' content='0; URL=pass_refresh.php'><script>alert('Введённая вами почта не соответсвует введённой при регистрации!');</script></head></html>");
 }
 
-$result = mysql_query("SELECT `e-mail` from `res` WHERE 1");
+$result = mysql_query("SELECT `e-mail` from `res` WHERE 1")or die('Запрос не удался: ' . mysql_error());
 $email_from_db = mysql_fetch_assoc($result);
 
  for($i=0;$i<$email_from_db;$i++){

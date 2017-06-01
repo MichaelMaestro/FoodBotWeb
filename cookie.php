@@ -8,7 +8,7 @@ $login = $_SESSION['login'];
 mysql_query("SET NAMES utf8");
 
 //извлекаем из базы все данные о пользователе с введенным логином
-$loginQuery = mysql_query("SELECT * FROM res WHERE login='$login'",$db); 
+$loginQuery = mysql_query("SELECT * FROM res WHERE login='$login'",$db)or die('Запрос не удался: ' . mysql_error()); 
 $result = mysql_fetch_array($loginQuery);
 
 //Если значение acs равно 0, то выводим сообщение об ошибке и остнонавливаем скрипт
@@ -29,13 +29,7 @@ if($result['acs']==0){
 
     // Выводим результаты в html
     $dish = mysql_fetch_array($dishQuery);
-    $keywords = mysql_fetch_assoc($key_wordsQuery);
-    $key_mas = array();
-    while($keywords = mysql_fetch_assoc($key_wordsQuery)){
-        $key_mas[] = $keywords;
-    }
-      
-
+    $keywords = mysql_fetch_array($key_wordsQuery);
     
     // Закрываем соединение
     mysql_close($db);

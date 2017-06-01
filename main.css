@@ -93,6 +93,11 @@
     max-width: 150px;
     max-height: 150px;
 }
+.menu input[type=checkbox]{
+    position: relative;
+    left: 40px;
+    opacity: 1;
+}
 
 .menu input[type=text]{
     width:140px; 
@@ -154,7 +159,7 @@
 
 .addDish input[type=submit]{
 	position: relative;
-    left: 400px;
+    left: 140px;
     top: 70px;
   	display: inline-block;
     color: white;
