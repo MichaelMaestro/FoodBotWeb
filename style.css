@@ -19,40 +19,30 @@ a img { border: 0; }
 article, aside, details, footer, header, menu, nav, section { display: block; }
 input, textarea, select { font-size: 12px; font-family: arial, sans-serif; }
 textarea { overflow: auto; }
-.shell {
-    margin: 0px auto;
-    width: 100%;
+
+.content{
+    padding:0 50px 0 50px;
 }
 
-.header {
-    position: absolute;
-    top: 0;
-    background: url(images/header.png) repeat-x 0 0;
-    height: 58px;
-    width:100%;
-    padding: 1px 30px 5px 30px;
+#header { 
+    background-color: rgb(237, 237, 237);
+    margin-bottom: 0px;
 }
 
 .logo {
-    width: 100px;
-    font-size: 36px;
+    font-size: 40px;
     float:left;
-    margin: 4px auto;
+    margin: 6px auto;
     font-family: 'Fugaz One',cursive;
     color:dodgerblue; 
 }
 
-#wrap{
-    width:800px;
-    margin:0 auto;
-}
     
 .text{
     float: left;
-    width:540px;
-    margin-left:20px; 
+    width:550px;
     opacity: 1;
-    margin-bottom:-2px;
+    
 }
 
 .text h3{ 
@@ -70,10 +60,8 @@ textarea { overflow: auto; }
 }
 
 .picture img{
-    max-width: 300px;
-    position: relative;
-    top:40px;
-    left:130px;
+    max-width: 270px;
+    margin-left: 100px;
 }
 
 .footer{
@@ -161,9 +149,4 @@ textarea { overflow: auto; }
     margin-left: 80px;
     margin-top:7px;
     border-radius:6px;
-}
-
-.footer{
-    background-color: #000;
-    height: 70px;
 }

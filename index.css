@@ -1,4 +1,4 @@
-.header input[type=button]{
+#header input[type=button]{
 	float:right;
 	margin-top: 10px;
 	background-color:dodgerblue;
@@ -6,27 +6,23 @@
 	font-family: 'Roboto',sans-serif;
 }
 
-.content{
-	padding:0 100px 0 100px;
-}
+
 
 /*Стили для блока с авторизацией*/	
 .block-1{
-	height:400px;
-	margin: 58px auto 0;
 	background: url("images/128.jpg") no-repeat center center;
 	background-size: cover;
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+	padding: 30px 0 30px 0;
 }
 
 /*Заголовок*/
 .hero-unit{
-	position: relative;
-	top:110px;
+	
 	font-family:'Lobster', cursive;
 	color: dodgerblue;
 	font-size:60px;
-	width: 460px;
+	
 }
 
 /*Ссылка на заголовке*/
@@ -37,17 +33,14 @@
 	color:white;
 	text-decoration: none;
 }
-.hero-unit a:focus, .hero-unit a:visited{
+.hero-unit a:visited{
 	color:dodgerblue;
 	text-decoration: none;
 }
 
 /*Форма авторизации*/
-.login {
-	position: relative;
-	float: right;
-	bottom:75px;
-	right:30px;
+#login {
+	margin-left: 100px;
 	padding: 10px 20px 20px 20px;
 	width: 345px;
 	height: 230px;
@@ -58,38 +51,39 @@
 	-webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(36, 151, 224, 0.3);
 	box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(36, 151, 224, 0.3);
 }
-.login p {
+
+#login p {
 	margin: 12px 6px 0;
 }
 
-.login p:first-child {
+#login p:first-child {
 	margin-top: 0;
 }
 
-.login input[type=text], .login input[type=password] {
+#login input[type=text], #login input[type=password] {
 	width: 260px;
 	height: 30px;
 	padding: 5px;
 }
 
-.login p.remember_me {
+#login p.remember_me {
 	float: left;
 	line-height: 31px;
 }
 
-.login p.remember_me label {
+#login p.remember_me label {
 	font-size: 12px;
 	color: #777;
 	cursor: pointer;
 }
 
-.login p.remember_me input {
+#login p.remember_me input {
 	position: relative;
 	bottom:3px;
 	margin-right: 4px;
 	vertical-align: middle;
 }
-.login p.submit {
+#login p.submit {
 	text-align: right;
 }
 
@@ -97,20 +91,23 @@
 /*Стили для блока с вопросами*/	
 .block-2{
 	background-color:#F5F5F5;
-	width: 100%;
-	height:370px;
+	
 }
+
+.block-2 .picture{
+	margin-top: 30px;
+}
+
+
 
 /*Стили для блока с описанием*/	
 .block-3{
-	height: 365px;
 	background: url("images/menu.jpg") repeat-x center center;
 }
 
 .text_left{
-	position: relative;
-	left: 30px;
-	bottom: 5px;
+	position:relative;
+	left:50%;
 	background: rgba(255, 255, 255,0.9);
 	border-radius: 8px;
 }
@@ -121,24 +118,12 @@
 	padding:5px;
 }
 
-.text_right{
-	position: relative;
-	left: 570px;
-	bottom: 15px;
-	background: rgba(255, 255, 255,0.9);
-	border-radius: 8px;
-}
 
-.text_right h3{
-	font-size: 30px;
-	color:rgba(31, 197, 183, 0.74); 
-	padding:5px;
-}
 
 /*Стили для блока с картой*/
 .block-4{
-	height: 300px;
 	background: url("images/maps.png") repeat-x center center;
+	padding: 5px;
 }
 
 .block-4  p{
@@ -151,10 +136,7 @@
 }
 
 .block-4 .picture img{
-	max-width: 220px;
-    position: relative;
-    top: 35px;
-    float:right;
-    margin-right: 175px;
+	margin-top: 10px;
+	max-width: 250px;
 
 }	
