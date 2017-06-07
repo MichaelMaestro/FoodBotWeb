@@ -8,10 +8,11 @@ if (isset($_POST['descr'])) { $descr= $_POST['descr']; if ($descr =='') { unset(
 if (isset($_POST['price'])) { $price=$_POST['price']; if ($price =='') { unset($price);} }
 if (isset($_POST['ingr'])) { $ingr=$_POST['ingr']; if ($ingr =='') { unset($ingr);} }
 if (isset($_POST['picture'])) { $picture=$_POST['picture']; if ($picture =='') { unset($picture);} }
+if (isset($_POST['time'])) { $timeToCook=$_POST['time']; if ($timeToCook =='') { unset($timeToCook);} }
 
 
 //Проверка на заполненность обязательных полей
-if (empty($dish_name) or empty($price) or empty($ingr)){
+if (empty($dish_name) or empty($price) or empty($ingr) or empty($timeToCook)){
 	echo("<html><head><meta charset='utf8' http-equiv='Refresh' content='0; URL=main.php'> <script> alert('Вы не заполнили необходимые поля! Вернитесь и заполните их!')</script></head></html>");
 	exit ();
 }
@@ -25,13 +26,15 @@ $price = stripslashes($price);
 $price = htmlspecialchars($price);
 $ingr = stripslashes($ingr);
 $ingr = htmlspecialchars($ingr);
+$timeToCook = htmlspecialchars($timeToCook);
+$timeToCook = stripslashes($timeToCook);
 
 //обрезаем пробелы
 $dish_name = trim($dish_name);
 $descr = trim($descr);
 $price = trim($price);
 $ingr = trim($ingr);
-
+$timeToCook = trim($timeToCook);
 
 include ("bd.php");
 
@@ -62,7 +65,7 @@ if(empty($picture)){
     exit ("<html><head><meta http-equiv='Refresh' content='0; URL=main.php'><script> alert ('В вашем ресторане уже есть блюдо с таким названием! Попробуйте придумать другое.')</script></head></html>");
   }
 
-  $result = mysql_query ("INSERT INTO dish (`dish_name`, `icons`,`descr_dish`,`price`,`ingredient`,`id_res`) VALUES ('$dish_name', '$uploadfile','$descr','$price','$ingr','$_SESSION[id]')")or die('Запрос не удался: ' . mysql_error());
+  $result = mysql_query ("INSERT INTO dish (`dish_name`, `icons`,`descr_dish`,`price`,`ingredient`,`timeToCook`,`id_res`) VALUES ('$dish_name', '$uploadfile','$descr','$price','$ingr','$timeToCook','$_SESSION[id]')")or die('Запрос не удался: ' . mysql_error());
   
   if ($result =='TRUE'){
     echo "<html><head><meta charset='utf8'><script> alert('Блюдо добавлено.')</script></head></html>";
@@ -90,7 +93,7 @@ else{
     exit ("<html><head><meta http-equiv='Refresh' content='0; URL=main.php'><script> alert ('В вашем ресторане уже есть блюдо с таким названием! Попробуйте придумать другое.')</script></head></html>");
   }
   
-  $result2 = mysql_query("INSERT INTO `dish` (`dish_name`, `icons`, `descr_dish`, `price`, `ingredient`,`id_res`) VALUES ('$dish_name', '$picture','$descr','$price','$ingr','$_SESSION[id]')")or die('Запрос не удался: ' . mysql_error());
+  $result2 = mysql_query("INSERT INTO `dish` (`dish_name`, `icons`, `descr_dish`, `price`, `ingredient`,`timeToCook`,`id_res`) VALUES ('$dish_name', '$picture','$descr','$price','$ingr','$timeToCook','$_SESSION[id]')")or die('Запрос не удался: ' . mysql_error());
   if ($result2 =='TRUE'){
     echo "<html><head><meta charset='utf8' http-equiv='Refresh' content='0; URL=main.php'><script> alert('Блюдо добавлено.')</script></head></html>";
     error_reporting(0);

@@ -33,10 +33,7 @@
 	color:white;
 	text-decoration: none;
 }
-.hero-unit a:visited{
-	color:dodgerblue;
-	text-decoration: none;
-}
+
 
 /*Форма авторизации*/
 #login {

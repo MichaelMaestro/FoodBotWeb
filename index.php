@@ -16,7 +16,6 @@ if(isset($_COOKIE['Kulik'])){
     <link href="css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
-
 <div id="wrapper">
 
     <div class="container-fluid">
@@ -38,15 +37,15 @@ if(isset($_COOKIE['Kulik'])){
     <div class="container-fluid">
         <div class="block-1 row">
             <div class="content">
-                <div class="col-md-7 col-sm-12">
+                <div class="col-md-7 col-sm-4 col-xs-4">
                     <h1 class="hero-unit">
                         <a href="https://web.telegram.org/#/im?p=@takethefood_bot" target="_blank">Чат-бот</a> для вашего ресторана
                     </h1>
                 </div>
-                <div id="login" class="col-md-5 col-sm-12"> 
+                <div id="login" class="col-md-5 col-sm-4 col-xs-4"> 
                     <form class="form-horizontal" action="main.php" method="post">
                         <legend>Авторизация</legend>
-                        <p><input class="input" type="text" name="login" value="" placeholder="Логин или Email" required></p>
+                        <p><input class="input" type="text" name="login" value="" placeholder="Логин" required></p>
                         <p><input type="password" name="pass" value="" placeholder="Пароль" required></p>
                         <p><a  href="pass_refresh.php" id="refresh" >Забыли пароль?</a></p>
                         <p class="remember_me">    
@@ -86,7 +85,7 @@ if(isset($_COOKIE['Kulik'])){
     <div class="container-fluid">
         <div class="block-3 row">
             <div class="content">
-                <div class="text col-md-6 col-sm-6">
+                <div class="text col-md-6 col-sm-6 col-xs-4">
                     <div class="text_left">
                         <h3>Меню</h3>
                         <p>В личном кабенете вашего ресторана вы сможете вести своё меню,<br>именно с этим меню и будет работать бот.</p>
@@ -97,7 +96,7 @@ if(isset($_COOKIE['Kulik'])){
                         <p>Бот осуществляет поиск по ключевым словам, то есть вы выбираете ключевое слово<br> для каждого блюда и бот найдёт это блюдо по этому слову.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-6"></div>
+                <div class="col-md-6 col-sm-6 col-xs-4"></div>
             </div>
         </div>
     </div>
@@ -117,6 +116,7 @@ if(isset($_COOKIE['Kulik'])){
             </div>
         </div>
     </div>
+
 </div>
 
 <!-- Скритпы -->
