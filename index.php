@@ -47,7 +47,6 @@ if(isset($_COOKIE['Kulik'])){
                         <legend>Авторизация</legend>
                         <p><input class="input" type="text" name="login" value="" placeholder="Логин" required></p>
                         <p><input type="password" name="pass" value="" placeholder="Пароль" required></p>
-                        <p><a  href="pass_refresh.php" id="refresh" >Забыли пароль?</a></p>
                         <p class="remember_me">    
                             <input type="checkbox" id="remember_me" name="remember_me">
                             <label for="remember_me">Запомнить меня</label>

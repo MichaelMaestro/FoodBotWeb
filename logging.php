@@ -63,7 +63,7 @@ else {
 
 //после авторизации и проверки  выполняем SQL-запросы для получения данных отображаемых на сайте
 mysql_query("SET NAMES utf8");
-$dishQuery = mysql_query("SELECT `id`, `dish_name`, `descr_dish`, `icons`, `price`, `ingredient` FROM dish WHERE `id_res`='$_SESSION[id]'") or die('Запрос не удался: ' . mysql_error());
+$dishQuery = mysql_query("SELECT `id`, `dish_name`, `descr_dish`, `icons`, `price`, `ingredient`, `timetocook` FROM dish WHERE `id_res`='$_SESSION[id]'") or die('Запрос не удался: ' . mysql_error());
 
 $key_wordsQuery = mysql_query("SELECT * FROM key_words") or die('Запрос не удался: ' . mysql_error());
 

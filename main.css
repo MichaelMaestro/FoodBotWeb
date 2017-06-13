@@ -69,7 +69,7 @@
 }
 .menu input[type=checkbox]{
     position: relative;
-    left: 40px;
+    left: 55px;
     opacity: 1;
 }
 
@@ -81,7 +81,7 @@
     background-size: cover;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
     padding-bottom: 15px;
-    margin-bottom: 0px;
+    margin-bottom: 0px !important;
 }
 
 .addDish textarea{
@@ -133,7 +133,7 @@
 
 
 .addDish form input[type=text] {
-    color: #fff;
+    color: #000;
     border-color: #fff;
 }
 

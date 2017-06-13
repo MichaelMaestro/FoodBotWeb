@@ -87,14 +87,16 @@ else{
             <?php do{?>
             <tr>
               <td>
-                <input type="checkbox" id="check" checked>
+                <input type="checkbox" class="center-align" id="check" checked>
                 <br>
+                <div class="center-align">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
                 <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
               </td>
               <td id="dish_name"><?=$dish['dish_name']?></td>
               <td><img src="<?=$dish['icons']?>"></td>
-              <td><?= $dish['descr_dish']?> Время на приготовление:30 мин</td>
+              <td><?= $dish['descr_dish']?> <br> Время на приготовление:<?= $dish['timetocook']?></td>
               <td><?= $dish['ingredient']?></td>
               <td><?= $dish['price']?> руб.</td>
               <td><div class="chips chips-autocomplete"></div></td> 
@@ -132,7 +134,7 @@ else{
           <div class="col-md-4 col-sm-4">
             <input type="text"  value="" name="ingr" placeholder="Ингридиенты">
             <input type="text"  value="" name="price" placeholder="Цена">
-            <input type="submit"  value="Добавить блюдо">
+            <input id="add" type="submit"  value="Добавить блюдо">
           </div>
           <div class="col-md-4 col-sm-4">
             <input type="text" name="descr" placeholder="Описание">
@@ -149,38 +151,12 @@ else{
 <script src="js/bootstrap.js"></script>
 <script src="js/exit.js"></script> 
 <script src="js/price+checkUrl.js"></script>
+<script src="js/Checker.js"></script>
 <script>
-$(document).ready(function(){
-        $('#check').change(function(){
-            if ($(this).is(':checked')){
-              if (window.XMLHttpRequest) {
-                // code for IE7+, Firefox, Chrome, Opera, Safari
-                xmlhttp = new XMLHttpRequest();
-              }
-              else {
-                // code for IE6, IE5
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-              }
-              xmlhttp.open("GET","update.php?f=1",true);
-              xmlhttp.send();
-              console.log('мы поменяли твой флажок хозяин');
-              console.log($('#dish_name').value)
-            }
-            else{
-              if (window.XMLHttpRequest) {
-                // code for IE7+, Firefox, Chrome, Opera, Safari
-                xmlhttp = new XMLHttpRequest();
-              }
-              else {
-                // code for IE6, IE5
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-              }
-              xmlhttp.open("GET","update.php?f=0",true);
-              xmlhttp.send();
-              console.log('мы разменяли твой флажок хозяин');
-            }    
-        });
-    });
+  
+
+
+
 </script>
 <script>
    $('.chips').material_chip(); 
